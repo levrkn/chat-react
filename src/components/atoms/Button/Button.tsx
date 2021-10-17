@@ -1,12 +1,21 @@
-import React, { ButtonHTMLAttributes } from 'react';
+import React from 'react';
 import './Button.scss';
 
-const Button: React.FC<ButtonHTMLAttributes<HTMLButtonElement>> = ({
-  children,
-  ...rest
-}) => (
-  <button disabled={false} className="button" type="button" {...rest}>
-    {children}
-  </button>
-);
+interface ButtonProps {
+  children: React.ReactNode;
+  className?: string;
+}
+
+const Button: React.FC<ButtonProps> = (props: ButtonProps) => {
+  Button.defaultProps = {
+    className: '',
+  };
+  const { children, className } = props;
+
+  return (
+    <button disabled={false} className={`button ${className}`} type="submit">
+      {children}
+    </button>
+  );
+};
 export default Button;

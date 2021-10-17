@@ -20,7 +20,6 @@
   "rules": {
     "react/jsx-props-no-spreading": "off",
     "linebreak-style": "off",
-    "react/prop-types": [2, { "ignore": ["children"] }],
     "react/jsx-one-expression-per-line": "off",
     "no-use-before-define": "off",
     "@typescript-eslint/no-use-before-define": ["error"],

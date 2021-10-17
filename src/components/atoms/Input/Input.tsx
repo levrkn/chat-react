@@ -1,7 +1,26 @@
-import React, { InputHTMLAttributes } from 'react';
+import React from 'react';
 import './Input.scss';
 
-const Input: React.FC<InputHTMLAttributes<HTMLInputElement>> = ({
-  ...rest
-}) => <input className="input" type="text" {...rest} />;
+interface InputProps {
+  id: string;
+  placeholder: string;
+  className?: string;
+}
+
+const Input: React.FC<InputProps> = (props: InputProps) => {
+  Input.defaultProps = {
+    className: '',
+  };
+  const { id, placeholder, className } = props;
+
+  return (
+    <input
+      className={`input ${className}`}
+      type="text"
+      id={id}
+      placeholder={placeholder}
+      required
+    />
+  );
+};
 export default Input;

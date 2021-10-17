@@ -1,14 +1,22 @@
-import React, { LabelHTMLAttributes } from 'react';
+import React from 'react';
 import './Label.scss';
 
-const Label: React.FC<LabelHTMLAttributes<HTMLLabelElement>> = ({
-  children,
-  ...rest
-}) => (
-  // eslint-disable-next-line jsx-a11y/label-has-associated-control
-  <label className="input" {...rest}>
-    {children}
-  </label>
-);
+interface LabelProps {
+  children: React.ReactNode;
+  htmlFor: string;
+  className?: string;
+}
+
+const Label: React.FC<LabelProps> = (props: LabelProps) => {
+  Label.defaultProps = {
+    className: '',
+  };
+  const { children, htmlFor, className } = props;
+  return (
+    <label className={`label ${className}`} htmlFor={htmlFor}>
+      {children}
+    </label>
+  );
+};
 
 export default Label;
