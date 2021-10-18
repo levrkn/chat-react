@@ -1,0 +1,14 @@
+.header {
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #88ABE3;
+  &__logo {
+    width: 86px;
+    margin-left: 24px;
+  }
+  &__profileIcon {
+    margin-right: 24px;
+  }
+}

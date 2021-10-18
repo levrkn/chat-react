@@ -4,16 +4,20 @@ import Field from '../../molecules/Field/Field';
 import './LoginForm.scss';
 
 interface LoginForm {
-  onSubmit: () => 1;
+  onSubmit: (e: React.FormEvent) => void;
+  className?: string;
 }
 
 const LoginForm: React.FC<LoginForm> = (props: LoginForm) => {
-  const { onSubmit } = props;
+  LoginForm.defaultProps = {
+    className: '',
+  };
+  const { onSubmit, className } = props;
   return (
-    <form onSubmit={onSubmit} className="LoginForm">
-      <Field title="user name" />
-      <Field title="password" />
-      <Button>Log In</Button>
+    <form className={`LoginForm ${className}`} onSubmit={onSubmit}>
+      <Field className="LoginForm__field" title="user name" />
+      <Field className="LoginForm__field" title="password" />
+      <Button className="LoginForm__button">Log In</Button>
     </form>
   );
 };

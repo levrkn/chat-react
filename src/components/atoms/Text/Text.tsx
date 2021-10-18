@@ -7,8 +7,8 @@ interface TextProps {
   className?: string;
 }
 
-const Title: React.FC<TextProps> = (props: TextProps) => {
-  Title.defaultProps = {
+const Text: React.FC<TextProps> = (props: TextProps) => {
+  Text.defaultProps = {
     className: '',
   };
   const { children, variant, className } = props;
@@ -23,10 +23,10 @@ const Title: React.FC<TextProps> = (props: TextProps) => {
     case '4':
       return <h4 className={`title4 ${className}`}>{children}</h4>;
     case '5':
-      return <p className={`title1 ${className}`}>{children}</p>;
+      return <p className={`text1 ${className}`}>{children}</p>;
     default:
-      return <p className={`title2 ${className}`}>{children}</p>;
+      return <p className={`text2 ${className}`}>{children}</p>;
   }
 };
 
-export default Title;
+export default Text;

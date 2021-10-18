@@ -13,7 +13,7 @@ const Button: React.FC<ButtonProps> = (props: ButtonProps) => {
   const { children, className } = props;
 
   return (
-    <button disabled={false} className={`button ${className}`} type="submit">
+    <button className={`button ${className}`} disabled={false} type="submit">
       {children}
     </button>
   );

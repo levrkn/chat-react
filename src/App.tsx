@@ -1,13 +1,11 @@
 import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
 import './assets/styles/index.scss';
-import LoginForm from './components/organisms/LoginForm/LoginForm';
+import Routes from './Routes';
 
 const App: React.FC = () => (
-  <div className="App">
-    <header className="App-header">
-      <LoginForm onSubmit={() => 1} />
-    </header>
-  </div>
+  <BrowserRouter>
+    <Routes />
+  </BrowserRouter>
 );
-
 export default App;
