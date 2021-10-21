@@ -1,5 +1,5 @@
 import React from 'react';
-import './Text.scss';
+import './Typography.scss';
 
 interface TextProps {
   variant: '1' | '2' | '3' | '4' | '5' | '6';
@@ -7,12 +7,7 @@ interface TextProps {
   className?: string;
 }
 
-const Text: React.FC<TextProps> = (props: TextProps) => {
-  Text.defaultProps = {
-    className: '',
-  };
-  const { children, variant, className } = props;
-
+const Text: React.FC<TextProps> = ({ className, children, variant }) => {
   switch (variant) {
     case '1':
       return <h1 className={`title1 ${className}`}>{children}</h1>;
@@ -27,6 +22,10 @@ const Text: React.FC<TextProps> = (props: TextProps) => {
     default:
       return <p className={`text2 ${className}`}>{children}</p>;
   }
+};
+
+Text.defaultProps = {
+  className: '',
 };
 
 export default Text;

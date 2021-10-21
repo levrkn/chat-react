@@ -1,27 +1,34 @@
 import React from 'react';
 import Avatar from '../../atoms/Avatar/Avatar';
-import Text from '../../atoms/Text/Text';
+import Typography from '../../atoms/Typography/Typography';
 import './Card.scss';
 
 interface CardProps {
   className?: string;
   avatar: string;
   title: string;
-  text: string;
+  subtitle: string;
 }
 
-const Card: React.FC<CardProps> = (props: CardProps) => {
-  Card.defaultProps = {
-    className: '',
-  };
-  const { className, avatar, title, text } = props;
+const Card: React.FC<CardProps> = ({ className, avatar, title, subtitle }) => {
+  const classProps = `card ${className}`;
   return (
-    <div className={`card ${className}`}>
-      <Avatar src={avatar} />
-      <Text variant="4">{title}</Text>
-      <Text variant="6">{text}</Text>
+    <div className={classProps}>
+      <Avatar className="card__avatar" src={avatar} />
+      <div>
+        <Typography className="card__title" variant="4">
+          {title}
+        </Typography>
+        <Typography className="card__text" variant="6">
+          {subtitle}
+        </Typography>
+      </div>
     </div>
   );
+};
+
+Card.defaultProps = {
+  className: '',
 };
 
 export default Card;

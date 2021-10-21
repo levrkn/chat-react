@@ -1,25 +1,52 @@
 import React from 'react';
-import Button from '../../atoms/Button/Button';
+import { useForm } from 'react-hook-form';
+import * as yup from 'yup';
+import { yupResolver } from '@hookform/resolvers/yup';
+import AuthButton from '../../atoms/AuthButton/AuthButton';
 import Field from '../../molecules/Field/Field';
 import './LoginForm.scss';
 
 interface LoginForm {
-  onSubmit: (e: React.FormEvent) => void;
   className?: string;
+  onSubmit: (data: { userName: string; password: string }) => void;
 }
 
-const LoginForm: React.FC<LoginForm> = (props: LoginForm) => {
-  LoginForm.defaultProps = {
-    className: '',
-  };
-  const { onSubmit, className } = props;
+const schema = yup.object().shape({
+  userName: yup.string().min(8).max(32).required(),
+  password: yup.string().min(8).max(32).required(),
+});
+
+const LoginForm: React.FC<LoginForm> = ({ className, onSubmit }) => {
+  const classProps = `loginForm ${className}`;
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(schema),
+  });
   return (
-    <form className={`LoginForm ${className}`} onSubmit={onSubmit}>
-      <Field className="LoginForm__field" title="user name" />
-      <Field className="LoginForm__field" title="password" />
-      <Button className="LoginForm__button">Log In</Button>
+    <form className={classProps} onSubmit={handleSubmit(onSubmit)}>
+      <Field
+        className="loginForm__field"
+        title="user name"
+        error={errors.userName?.message}
+        {...register('userName')}
+      />
+      <Field
+        className="loginForm__field"
+        title="password"
+        error={errors.password?.message}
+        type="password"
+        {...register('password')}
+      />
+      <AuthButton className="loginForm__button">Log In</AuthButton>
     </form>
   );
+};
+
+LoginForm.defaultProps = {
+  className: '',
 };
 
 export default LoginForm;

@@ -1,0 +1,12 @@
+.activity {
+  padding: 24px;
+  z-index: 5;
+  background-color: #fff;
+  &__title {
+    display: block;
+    margin-bottom: 4px;
+  }
+  &__subtitle {
+    color: rgba(148, 148, 148, 1);
+  }
+}

@@ -17,4 +17,10 @@
   &:valid {
     border: 1px solid #5c98f1;
   }
+  &.error {
+    border: 1px solid #FB6262;
+  }
+  &__errorText {
+    color: rgba(251, 98, 98, 1);
+  }
 }

@@ -6,16 +6,17 @@ interface ProfileIconProps {
   className?: string;
 }
 
-const ProfileIcon: React.FC<ProfileIconProps> = (props: ProfileIconProps) => {
-  ProfileIcon.defaultProps = {
-    className: '',
-  };
-  const { className } = props;
+const ProfileIcon: React.FC<ProfileIconProps> = ({ className }) => {
+  const classProps = `profileIcon ${className}`;
   return (
-    <div className={`profileIcon ${className}`}>
+    <div className={classProps}>
       <img src={image} alt="profile" />
     </div>
   );
+};
+
+ProfileIcon.defaultProps = {
+  className: '',
 };
 
 export default ProfileIcon;

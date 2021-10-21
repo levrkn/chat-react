@@ -1,0 +1,16 @@
+.messaging {
+  background: url('../../../assets/images/messagingBackground.svg');
+  background-size: cover;
+  background-position-y: -50px;
+  flex: 3;
+  overflow: hidden;
+  max-height: calc(100vh - 220px);
+  &__inner {
+    height: calc(100vh - 255px);
+    overflow-y: auto;
+    display: inline-flex;
+    &__wrap {
+      margin-top: auto;
+    }
+  }
+}

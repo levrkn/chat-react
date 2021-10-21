@@ -1,0 +1,28 @@
+.card {
+  padding: 12px 0 12px 24px;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  &__avatar {
+    margin-right: 12px;
+  }
+  &__title {
+    display: block;
+    margin-bottom: 4px;
+    transition: all 0.2s;
+  }
+  &__text {
+    transition: all 0.2s;
+  }
+  &:hover {
+    background-color: #5c98f1;
+    & .card__title {
+      color: #fff;
+    }
+    & .card__text {
+      color: #fff;
+    }
+  }
+}

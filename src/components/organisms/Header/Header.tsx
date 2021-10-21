@@ -7,17 +7,18 @@ interface HeaderProps {
   className?: string;
 }
 
-const Header: React.FC<HeaderProps> = (props: HeaderProps) => {
-  Header.defaultProps = {
-    className: '',
-  };
-  const { className } = props;
+const Header: React.FC<HeaderProps> = ({ className }) => {
+  const classProps = `header ${className}`;
   return (
-    <header className={`header ${className}`}>
+    <header className={classProps}>
       <Logo className="header__logo" />
       <ProfileIcon className="header__profileIcon" />
     </header>
   );
+};
+
+Header.defaultProps = {
+  className: '',
 };
 
 export default Header;

@@ -4,7 +4,15 @@ import LoginTemplate from '../components/templates/Login/LoginTemplate';
 
 const Login: React.FC = () => {
   const history = useHistory();
-  return <LoginTemplate onSubmit={(e) => history.push('./chat')} />;
+  const onSubmit = (data: { userName: string; password: string }) => console.log(data);
+  return (
+    <LoginTemplate
+      onSubmit={(data) => {
+        history.push('./chat');
+        onSubmit(data);
+      }}
+    />
+  );
 };
 
 export default Login;

@@ -1,9 +1,9 @@
-.LoginForm {
+.loginForm {
   max-width: 350px;
   display: flex;
   flex-direction: column;
   &__field {
-    margin-bottom: 32px;
+    margin-bottom: 10px;
   }
   &__button {
     margin-top: 16px;

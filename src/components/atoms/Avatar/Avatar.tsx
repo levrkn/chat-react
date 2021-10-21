@@ -3,15 +3,20 @@ import './Avatar.scss';
 
 interface AvatarProps {
   className?: string;
-  src: string
+  src: string;
 }
 
-const Avatar: React.FC<AvatarProps> = (props: AvatarProps) => {
-  Avatar.defaultProps = {
-    className: '',
-  };
-  const { className, src } = props;
-  return <img className={`avatar ${className}`} src={src} alt="avatar" />;
+const Avatar: React.FC<AvatarProps> = ({ className, ...rest }) => {
+  const classProps = `avatar ${className}`;
+  return (
+    <>
+      <img className={classProps} alt="avatar" {...rest} />
+    </>
+  );
+};
+
+Avatar.defaultProps = {
+  className: '',
 };
 
 export default Avatar;
