@@ -15,12 +15,7 @@ const AuthInput = React.forwardRef<HTMLInputElement, AuthInputProps>(
       : `input ${className}`;
     return (
       <>
-        <input
-          className={classProps}
-          ref={ref}
-          required
-          {...rest}
-        />
+        <input className={classProps} ref={ref} required {...rest} />
         {error && <p className="input__errorText">{error}</p>}
       </>
     );

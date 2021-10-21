@@ -2,6 +2,17 @@
   display: flex;
   flex-direction: column;
   height: 100px;
+  position: relative;
+  &.error::after {
+    content: '';
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    right: 15px;
+    top: 43px;
+    background-image: url('../../../assets/images/errorInputIcon.svg');
+    background-size: cover;
+  }
   &__label {
     margin-bottom: 4px;
   }

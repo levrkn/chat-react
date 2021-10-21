@@ -4,7 +4,9 @@ import LoginTemplate from '../components/templates/Login/LoginTemplate';
 
 const Login: React.FC = () => {
   const history = useHistory();
-  const onSubmit = (data: { userName: string; password: string }) => console.log(data);
+  const onSubmit = (data: { userName: string; password: string }) => {
+    console.log(data);
+  };
   return (
     <LoginTemplate
       onSubmit={(data) => {

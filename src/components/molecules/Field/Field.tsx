@@ -5,14 +5,14 @@ import AuthInput from '../../atoms/AuthInput/AuthInput';
 
 interface FieldProps {
   className?: string;
-  type?: string
+  type?: string;
   title: string;
   error: string;
 }
 
 const Field = React.forwardRef<HTMLInputElement, FieldProps>(
   ({ className, title, error, ...rest }, ref) => {
-    const classProps = `field ${className}`;
+    const classProps = error ? `field error ${className}` : `field ${className}`;
     return (
       <div className={classProps}>
         <Label className="field__label" htmlFor={title}>
