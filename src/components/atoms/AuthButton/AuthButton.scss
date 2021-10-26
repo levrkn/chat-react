@@ -1,3 +1,5 @@
+@import '../../../assets/styles/mixins.scss';
+
 .button {
   border-radius: 8px;
   background-color: #5C98F1;
@@ -16,5 +18,8 @@
   &:disabled {
     background-color: #D1D1D1;
     cursor: not-allowed;
+  }
+  @include media1 {
+    width: 100%;
   }
 }

@@ -6,7 +6,7 @@ import Logo from '../../atoms/Logo/Logo';
 import Text from '../../atoms/Typography/Typography';
 
 interface LoginTemplateProps {
-  onSubmit: (data: { userName: string; password: string }) => void;
+  onSubmit: () => void;
 }
 
 const LoginTemplate: React.FC<LoginTemplateProps> = ({ onSubmit }) => (

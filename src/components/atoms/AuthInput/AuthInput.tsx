@@ -1,4 +1,5 @@
-import React from 'react';
+import classNames from 'classnames';
+import React, { forwardRef } from 'react';
 import './AuthInput.scss';
 
 interface AuthInputProps {
@@ -8,11 +9,10 @@ interface AuthInputProps {
   error: string;
 }
 
-const AuthInput = React.forwardRef<HTMLInputElement, AuthInputProps>(
-  ({ className, error, ...rest }, ref) => {
-    const classProps = error
-      ? `input error ${className}`
-      : `input ${className}`;
+const AuthInput = forwardRef<HTMLInputElement, AuthInputProps>(
+  ({ className = '', error, ...rest }, ref) => {
+    const classProps = classNames('input', className, { error: !!error });
+
     return (
       <>
         <input className={classProps} ref={ref} required {...rest} />
@@ -21,9 +21,5 @@ const AuthInput = React.forwardRef<HTMLInputElement, AuthInputProps>(
     );
   },
 );
-
-AuthInput.defaultProps = {
-  className: '',
-};
 
 export default AuthInput;

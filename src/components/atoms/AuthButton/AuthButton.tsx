@@ -1,22 +1,29 @@
-import React from 'react';
+import classNames from 'classnames';
+import React, { FC } from 'react';
 import './AuthButton.scss';
 
 interface AuthButtonProps {
-  children: React.ReactNode;
   className?: string;
+  children: React.ReactNode;
+  error: { [x: string]: { userName: string; password: string } };
 }
 
-const AuthButton: React.FC<AuthButtonProps> = ({ className, children }) => {
-  const classProps = `button ${className}`;
+const AuthButton: FC<AuthButtonProps> = ({
+  className = '',
+  children,
+  error,
+}) => {
+  const classProps = classNames('button', className);
+
   return (
-    <button className={classProps} disabled={false} type="submit">
+    <button
+      className={classProps}
+      disabled={!!Object.keys(error)[0]}
+      type="submit"
+    >
       {children}
     </button>
   );
-};
-
-AuthButton.defaultProps = {
-  className: '',
 };
 
 export default AuthButton;

@@ -1,4 +1,5 @@
-import React from 'react';
+import classNames from 'classnames';
+import React, { FC } from 'react';
 import './Label.scss';
 
 interface LabelProps {
@@ -7,17 +8,14 @@ interface LabelProps {
   className?: string;
 }
 
-const Label: React.FC<LabelProps> = ({ className, children, htmlFor }) => {
-  const classProps = `label ${className}`;
+const Label: FC<LabelProps> = ({ className = '', children, htmlFor }) => {
+  const classProps = classNames('label', className);
+
   return (
     <label className={classProps} htmlFor={htmlFor}>
       {children}
     </label>
   );
-};
-
-Label.defaultProps = {
-  className: '',
 };
 
 export default Label;

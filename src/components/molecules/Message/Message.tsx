@@ -1,4 +1,5 @@
-import React from 'react';
+import classNames from 'classnames';
+import React, { FC } from 'react';
 import Typography from '../../atoms/Typography/Typography';
 import './Message.scss';
 
@@ -8,26 +9,17 @@ interface MessageProps {
   messageText: string;
 }
 
-const Message: React.FC<MessageProps> = ({ className, type, messageText }) => {
-  const classProps = `message ${className}`;
-  switch (type) {
-    case 'left':
-      return (
-        <div className={classProps}>
-          <Typography variant="5">{messageText}</Typography>
-        </div>
-      );
-    default:
-      return (
-        <div className={`message__right ${classProps}`}>
-          <Typography variant="5">{messageText}</Typography>
-        </div>
-      );
-  }
-};
-
-Message.defaultProps = {
-  className: '',
+const Message: FC<MessageProps> = ({ className = '', type, messageText }) => {
+  const classProps = classNames('message', className, {
+    message__right: type === 'right',
+  });
+  return (
+    <div className={classProps}>
+      <Typography className="message__text" variant="5">
+        {messageText}
+      </Typography>
+    </div>
+  );
 };
 
 export default Message;

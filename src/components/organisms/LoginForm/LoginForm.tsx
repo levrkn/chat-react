@@ -1,14 +1,15 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
+import classNames from 'classnames';
 import AuthButton from '../../atoms/AuthButton/AuthButton';
 import Field from '../../molecules/Field/Field';
 import './LoginForm.scss';
 
 interface LoginForm {
   className?: string;
-  onSubmit: (data: { userName: string; password: string }) => void;
+  onSubmit: () => void;
 }
 
 const schema = yup.object().shape({
@@ -16,8 +17,8 @@ const schema = yup.object().shape({
   password: yup.string().min(8).max(32).required(),
 });
 
-const LoginForm: React.FC<LoginForm> = ({ className, onSubmit }) => {
-  const classProps = `loginForm ${className}`;
+const LoginForm: FC<LoginForm> = ({ className = '', onSubmit }) => {
+  const classProps = classNames('loginForm', className);
   const {
     register,
     handleSubmit,
@@ -40,13 +41,11 @@ const LoginForm: React.FC<LoginForm> = ({ className, onSubmit }) => {
         type="password"
         {...register('password')}
       />
-      <AuthButton className="loginForm__button">Log In</AuthButton>
+      <AuthButton error={errors} className="loginForm__button">
+        Log In
+      </AuthButton>
     </form>
   );
-};
-
-LoginForm.defaultProps = {
-  className: '',
 };
 
 export default LoginForm;

@@ -5,6 +5,10 @@
   align-items: center;
   cursor: pointer;
   transition: all 0.2s;
+  background-color: #fff;
+  border: 0;
+  width: 100%;
+  text-align: left;
   &__avatar {
     margin-right: 12px;
   }
@@ -12,9 +16,18 @@
     display: block;
     margin-bottom: 4px;
     transition: all 0.2s;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
   }
   &__text {
     transition: all 0.2s;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    &.prev {
+      color: #5E93E7;
+    }
   }
   &:hover {
     background-color: #5c98f1;
@@ -24,5 +37,17 @@
     & .card__text {
       color: #fff;
     }
+  }
+  &.active {
+    background-color: #5c98f1;
+    & .card__title {
+      color: #fff;
+    }
+    & .card__text {
+      color: #fff;
+    }
+  }
+  div {
+    overflow: hidden;
   }
 }

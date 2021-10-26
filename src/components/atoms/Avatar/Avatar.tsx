@@ -1,4 +1,5 @@
-import React from 'react';
+import classNames from 'classnames';
+import React, { FC } from 'react';
 import './Avatar.scss';
 
 interface AvatarProps {
@@ -6,17 +7,10 @@ interface AvatarProps {
   src: string;
 }
 
-const Avatar: React.FC<AvatarProps> = ({ className, ...rest }) => {
-  const classProps = `avatar ${className}`;
-  return (
-    <>
-      <img className={classProps} alt="avatar" {...rest} />
-    </>
-  );
-};
+const Avatar: FC<AvatarProps> = ({ className = '', ...rest }) => {
+  const classProps = classNames('avatar', className);
 
-Avatar.defaultProps = {
-  className: '',
+  return <img className={classProps} alt="avatar" {...rest} />;
 };
 
 export default Avatar;

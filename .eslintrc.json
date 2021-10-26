@@ -19,6 +19,7 @@
   "plugins": ["react", "@typescript-eslint", "prettier"],
   "rules": {
     "react/prop-types": "off",
+    "react/require-default-props": "off",
     "react/jsx-props-no-spreading": "off",
     "object-curly-newline": ["off"],
     "linebreak-style": "off",
