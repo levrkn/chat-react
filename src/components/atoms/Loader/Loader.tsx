@@ -8,6 +8,7 @@ interface LoaderProps {
 
 const Loader: FC<LoaderProps> = ({ classNameName = '' }) => {
   const classNameProps = classNames('sk-fading-circle', classNameName);
+
   return (
     <div className={classNameProps}>
       <div className="sk-circle1 sk-circle" />

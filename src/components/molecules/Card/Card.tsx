@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import { useStore } from 'effector-react';
 import React, { FC } from 'react';
-import { $currentСhatId } from '../../../store';
+import { $currentСhatId, updateCurrentId } from '../../../store';
 import { MessageType } from '../../../types';
 import Avatar from '../../atoms/Avatar/Avatar';
 import Typography from '../../atoms/Typography/Typography';
@@ -13,7 +13,6 @@ interface CardProps {
   avatar: string;
   title: string;
   subtitle: MessageType;
-  handleCurrentCard: (id: number) => void;
 }
 
 const Card: FC<CardProps> = ({
@@ -22,18 +21,17 @@ const Card: FC<CardProps> = ({
   avatar,
   title,
   subtitle,
-  handleCurrentCard,
 }) => {
-  const currentCard = useStore($currentСhatId);
+  const currentСhatId = useStore($currentСhatId);
   const classProps = classNames('card', className, {
-    active: currentCard === id,
+    active: currentСhatId === id,
   });
 
   return (
     <button
       className={classProps}
       type="button"
-      onClick={() => handleCurrentCard(id)}
+      onClick={() => updateCurrentId(id)}
     >
       <Avatar className="card__avatar" src={avatar} />
       <div>

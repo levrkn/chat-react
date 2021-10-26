@@ -1,3 +1,5 @@
+@import '../../../assets/styles/mixins.scss';
+
 .input {
   padding: 16px;
   border: 1px solid #b3cdf8;
@@ -6,7 +8,8 @@
   line-height: 23px;
   font-size: 15px;
   font-weight: 400;
-  width: 350px;
+  width: 100%;
+  max-width: 350px;
   color: #333333;
   &:focus {
     border: 1px solid #5c98f1;
@@ -23,5 +26,9 @@
   }
   &__errorText {
     color: rgba(251, 98, 98, 1);
+  }
+  @include media2 {
+    padding: 13px;
+    max-width: 100%;
   }
 }

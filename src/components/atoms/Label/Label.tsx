@@ -3,9 +3,9 @@ import React, { FC } from 'react';
 import './Label.scss';
 
 interface LabelProps {
+  className?: string;
   children: React.ReactNode;
   htmlFor: string;
-  className?: string;
 }
 
 const Label: FC<LabelProps> = ({ className = '', children, htmlFor }) => {

@@ -1,31 +1,51 @@
+@import '../../../assets/styles/mixins.scss';
+
 .title1 {
   font-size: 42px;
   font-weight: 800;
+  @include media1 {
+    font-size: 27px;
+  }
 }
 
 .title2 {
   font-size: 27px;
   font-weight: 700;
+  @include media1 {
+    font-size: 16px;
+  }
 }
 
 .title3 {
   font-size: 20px;
   font-weight: 700;
+  @include media1 {
+    font-size: 15px;
+  }
 }
 
 .title4 {
   font-size: 15px;
   font-weight: 700;
+  @include media1 {
+    font-size: 13px;
+  }
 }
 
 .text1 {
   font-size: 16px;
   font-weight: 400;
   color: #303030;
+  @include media1 {
+    font-size: 14px;
+  }
 }
 
 .text2 {
   font-size: 13px;
   font-weight: 500;
   color: #949494;
+  @include media1 {
+    font-size: 13px;
+  }
 }

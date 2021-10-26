@@ -13,7 +13,7 @@ const SendInput = forwardRef<HTMLInputElement, SendInputProps>(
       <>
         <input
           className={classProps}
-          placeholder="Write something..."
+          placeholder="Sending messages works too..."
           autoComplete="off"
           ref={ref}
           {...rest}
