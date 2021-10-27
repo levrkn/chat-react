@@ -1,0 +1,11 @@
+@import '../../../assets/styles/mixins.scss';
+
+.arrowButton {
+  display: none;
+  background: 0;
+  border: 0;
+  cursor: pointer;
+  @include media2 {
+    display: inline;
+  }
+}

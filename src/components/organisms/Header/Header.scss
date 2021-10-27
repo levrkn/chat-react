@@ -1,3 +1,5 @@
+@import '../../../assets/styles/mixins.scss';
+
 .header {
   height: 80px;
   display: flex;
@@ -7,8 +9,21 @@
   &__logo {
     width: 86px;
     margin-left: 24px;
+    @include media2 {
+      width: 63px;
+      margin-left: 14px;
+    }
   }
   &__profileIcon {
     margin-right: 24px;
+    @include media2 {
+      margin-right: 14px;
+    }
+  }
+  @include media2 {
+    height: 64px;
+    &.disable {
+      display: none;
+    }
   }
 }

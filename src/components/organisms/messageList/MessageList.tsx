@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import React, { FC } from 'react';
+import React, { FC, useEffect } from 'react';
 import Message from '../../molecules/Message/Message';
 import './MessageList.scss';
 
@@ -10,7 +10,7 @@ interface MessageListProps {
 
 const MessageList: FC<MessageListProps> = ({ className = '', messages }) => {
   const classProps = classNames('messageList', className);
-  React.useEffect(() => {
+  useEffect(() => {
     const messagess = document.getElementById('1');
     const scroll = () => {
       if (messagess !== null) {

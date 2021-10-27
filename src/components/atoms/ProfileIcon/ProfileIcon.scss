@@ -1,3 +1,5 @@
+@import '../../../assets/styles/mixins.scss';
+
 .profileIcon {
   width: 48px;
   height: 48px;
@@ -7,7 +9,11 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: all .2s;
+  transition: all 0.2s;
+  @include media2 {
+    width: 36px;
+    height: 36px;
+  }
   &:hover {
     background-color: #f4f4f4;
   }

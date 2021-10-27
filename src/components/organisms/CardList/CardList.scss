@@ -9,4 +9,11 @@
   @include media1 {
     flex: 2;
   }
+  @include media2 {
+    height: calc(100vh - 64px);
+    border-right: 0;
+    &.disable {
+      display: none;
+    }
+  }
 }

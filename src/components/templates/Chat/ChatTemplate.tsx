@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import React, { FC } from 'react';
 import { ChatType } from '../../../types';
 import Loader from '../../atoms/Loader/Loader';
@@ -20,9 +21,14 @@ const ChatTemplate: FC<ChatTemplateProps> = ({
   chats,
   isLoading,
 }) => {
+  const mobileClass = classNames('chat__inner', { show: currentChat });
   const content = currentChat ? (
     <>
-      <Activity title={currentChat.name} subtitle={currentChat.activity} />
+      <Activity
+        title={currentChat.name}
+        subtitle={currentChat.activity}
+        avatar={currentChat.avatar}
+      />
       <Messaging messages={currentChat?.messages} />
       <SendForm />
     </>
@@ -32,10 +38,14 @@ const ChatTemplate: FC<ChatTemplateProps> = ({
 
   return (
     <>
-      <Header />
+      <Header className={currentChat && 'disable'} />
       <main className="chat">
-        <CardList chats={chats} isLoading={isLoading} />
-        <div className="chat__inner">{isLoading ? <Loader /> : content}</div>
+        <CardList
+          className={currentChat && 'disable'}
+          chats={chats}
+          isLoading={isLoading}
+        />
+        <div className={mobileClass}>{isLoading ? <Loader /> : content}</div>
       </main>
     </>
   );
