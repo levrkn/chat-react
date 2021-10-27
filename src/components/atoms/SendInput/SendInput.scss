@@ -1,5 +1,11 @@
+@import '../../../assets/styles/mixins.scss';
+
 .sendInput {
   outline: none;
   border: 0;
   flex: 1;
+  font-size: 16px;
+  @include media1 {
+    font-size: 14px;
+  }
 }

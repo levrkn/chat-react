@@ -1,8 +1,8 @@
-.messaging {
+.messageList { 
   overflow: hidden;
-  max-height: calc(100vh - 220px);
+  height: 100%;
   &__inner {
-    height: calc(100vh - 255px);
+    height: 100%;
     overflow-y: auto;
     display: inline-flex;
     scrollbar-color: #458245 #714826; 

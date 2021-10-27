@@ -38,7 +38,6 @@ const Card: FC<CardProps> = ({
         <Typography className="card__title" variant="4">
           {title}
         </Typography>
-
         <Typography className="card__text" variant="6">
           {subtitle.type === 'right' && (
             <span className="card__text prev">You: </span>

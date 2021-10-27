@@ -1,6 +1,5 @@
 import classNames from 'classnames';
 import React, { FC } from 'react';
-import Loader from '../../atoms/Loader/Loader';
 import Message from '../../molecules/Message/Message';
 import './MessageList.scss';
 
@@ -10,7 +9,7 @@ interface MessageListProps {
 }
 
 const MessageList: FC<MessageListProps> = ({ className = '', messages }) => {
-  const classProps = classNames('messaging', className);
+  const classProps = classNames('messageList', className);
   React.useEffect(() => {
     const messagess = document.getElementById('1');
     const scroll = () => {
@@ -24,17 +23,13 @@ const MessageList: FC<MessageListProps> = ({ className = '', messages }) => {
   return (
     <>
       <div className={classProps}>
-        <div className="messaging__inner" id="1">
-          <div className="messaging__inner__wrap">
-            {messages ? (
-              messages.map((el) => (
-                <React.Fragment key={el.id}>
-                  <Message type={el.type} messageText={el.messageText} />
-                </React.Fragment>
-              ))
-            ) : (
-              <Loader />
-            )}
+        <div className="messageList__inner" id="1">
+          <div className="messageList__inner__wrap">
+            {messages.map((el) => (
+              <React.Fragment key={el.id}>
+                <Message type={el.type} messageText={el.messageText} />
+              </React.Fragment>
+            ))}
           </div>
         </div>
       </div>

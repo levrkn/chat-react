@@ -1,7 +1,12 @@
+@import '../../../assets/styles/mixins.scss';
+
 .cardList {
   height: calc(100vh - 80px);
   border-right: 1px solid #88ABE3;
   padding-top: 20px;
   flex: 1;
-  overflow-y: auto;
+  overflow: auto;
+  @include media1 {
+    flex: 2;
+  }
 }

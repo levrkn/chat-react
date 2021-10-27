@@ -1,7 +1,12 @@
+@import '../../../assets/styles/mixins.scss';
+
 .message {
   max-width: 47%;
   margin: 10px 20px;
   display: flex;
+  @include media1 {
+    max-width: 90%;
+  }
   &__right {
     margin-left: auto;
     .message__text {
@@ -18,7 +23,6 @@
         border-right: 2px solid #c5daff;
         border-top: 1px solid #c5daff;
         background: #e9f2ff;
-        z-index: 0;
         transform: skewX(-50deg) skewY(0deg);
       }
       &::after {
@@ -28,8 +32,6 @@
   }
   &__text {
     border: 1px solid #c5daff;
-    z-index: 1;
-    margin-left: auto;
     position: relative;
     display: inline-block;
     background-color: #fff;

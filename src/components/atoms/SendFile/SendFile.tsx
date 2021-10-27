@@ -9,6 +9,7 @@ interface SendFileProps {
 
 const SendFile: FC<SendFileProps> = ({ className = '' }) => {
   const classProps = classNames('sendFile', className);
+
   return (
     <button className={classProps} type="button">
       <img src={sendfile} alt="file" />

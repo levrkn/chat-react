@@ -1,4 +1,4 @@
-import { createEvent, createStore } from 'effector';
+import { createEffect, createEvent, createStore } from 'effector';
 import mockMessaging from '../fakeData';
 import { ChatType } from '../types';
 
@@ -21,3 +21,8 @@ const addMessageStore = (
   return [...state];
 };
 $chats.on(addMessage, addMessageStore);
+
+export const fetchChatsFx = createEffect(async () => {
+  const res = await fetch('https://jsonplaceholder.typicode.com/todos');
+  return res.json();
+});

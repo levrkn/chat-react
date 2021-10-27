@@ -1,7 +1,12 @@
+@import '../../../assets/styles/mixins.scss';
+
 .activity {
   padding: 24px;
   z-index: 5;
   background-color: #fff;
+  @include media1 {
+    padding: 29px;
+  }
   &__title {
     display: block;
     margin-bottom: 4px;

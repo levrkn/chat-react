@@ -9,6 +9,7 @@ interface SendInputProps {
 const SendInput = forwardRef<HTMLInputElement, SendInputProps>(
   ({ className = '', ...rest }, ref) => {
     const classProps = classNames('sendInput', className);
+
     return (
       <>
         <input

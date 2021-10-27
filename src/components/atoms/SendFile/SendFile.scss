@@ -1,7 +1,14 @@
+@import '../../../assets/styles/mixins.scss';
+
 .sendFile {
   margin: 24px;
   padding: 0;
   border: 0;
   cursor: pointer;
   background: 0;
+  @include media1 {
+    height: 24px;
+    width: 24px;
+    margin: 12px;
+  }
 }

@@ -9,6 +9,7 @@ interface SendButtonProps {
 
 const SendButton: FC<SendButtonProps> = ({ className = '' }) => {
   const classProps = classNames('sendButton', className);
+
   return (
     <button className={classProps} type="submit">
       <img src={sendIcon} alt="send" />

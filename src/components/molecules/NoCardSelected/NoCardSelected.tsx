@@ -12,7 +12,9 @@ const NoCardSelected: FC<NoCardSelectedProps> = ({ className = '' }) => {
 
   return (
     <div className={classProps}>
-      <Typography className="noCardSelected__text" variant="5">Select a chat to stary messaging</Typography>
+      <Typography className="noCardSelected__text" variant="5">
+        Select a chat to stary messaging
+      </Typography>
     </div>
   );
 };

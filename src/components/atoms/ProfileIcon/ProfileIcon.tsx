@@ -9,6 +9,7 @@ interface ProfileIconProps {
 
 const ProfileIcon: FC<ProfileIconProps> = ({ className = '' }) => {
   const classProps = classNames('profileIcon', className);
+
   return (
     <div className={classProps}>
       <img src={image} alt="profile" />

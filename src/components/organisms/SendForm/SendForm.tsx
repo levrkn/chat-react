@@ -20,6 +20,7 @@ const SendForm: FC<SendFormProps> = ({ className = '' }) => {
     addMessage({ ...data, id: currentChatId });
     reset();
   };
+
   return (
     <>
       <form className={classProps} onSubmit={handleSubmit(onSubmit)}>

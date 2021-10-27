@@ -8,31 +8,27 @@ import './CardList.scss';
 interface CardListProps {
   className?: string;
   chats: ChatType[];
+  isLoading: boolean;
 }
 
-const CardList: FC<CardListProps> = ({ className = '', chats }) => {
+const CardList: FC<CardListProps> = ({ className = '', chats, isLoading }) => {
   const classProps = classNames('cardList', className);
-
-  return (
-    <div className={classProps}>
-      {chats[0] ? (
-        chats.map(
-          (el: ChatType) => (
-            <React.Fragment key={el.id}>
-              <Card
-                avatar={el.avatar}
-                title={el.name}
-                subtitle={el.messages[el.messages.length - 1]}
-                id={el.id}
-              />
-            </React.Fragment>
-          ),
-        )
-      ) : (
-        <LackCards />
-      )}
-    </div>
+  const content = chats[0] ? (
+    chats.map((el: ChatType) => (
+      <React.Fragment key={el.id}>
+        <Card
+          avatar={el.avatar}
+          title={el.name}
+          subtitle={el.messages[el.messages.length - 1]}
+          id={el.id}
+        />
+      </React.Fragment>
+    ))
+  ) : (
+    <LackCards />
   );
+
+  return <div className={classProps}>{!isLoading && content}</div>;
 };
 
 export default CardList;

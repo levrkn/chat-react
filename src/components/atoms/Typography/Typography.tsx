@@ -8,7 +8,11 @@ interface TypographyProps {
   className?: string;
 }
 
-const Typography: FC<TypographyProps> = ({ className = '', children, variant }) => {
+const Typography: FC<TypographyProps> = ({
+  className = '',
+  children,
+  variant,
+}) => {
   switch (variant) {
     case '1':
       return <h1 className={classNames('title1', className)}>{children}</h1>;
