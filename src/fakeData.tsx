@@ -47,14 +47,22 @@ const mockMessaging: ChatType[] = [
       {
         id: 7,
         type: 'right',
-        messageText:
-          'SeSed ut perspiciatis unde omnis iste natus error sit voluptatemaccusantium doloremque laudantium, totam rem aperiam, eaque ipsa quaeab illo inventore veritatis et quasi architecto beatae vitae dictasunt explicabo. accusantium doloremque laudantium, totam re',
+        messageText: 'totam re',
       },
       {
         id: 8,
+        type: 'right',
+        messageText: 'totam re',
+      },
+      {
+        id: 9,
+        type: 'right',
+        messageText: 'totam re',
+      },
+      {
+        id: 10,
         type: 'left',
-        messageText:
-          'SeSed ut perspiciatis unde omnis iste natus error sit voluptatemaccusantium doloremque laudantium, totam rem aperiam, eaque ipsa quaeab illo inventore veritatis et quasi architecto beatae vitae dictasunt explicabo. accusantium doloremque laudantium, totam re',
+        messageText: 'SeSed',
       },
     ],
   },

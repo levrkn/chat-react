@@ -1,6 +1,7 @@
 import classNames from 'classnames';
 import React, { FC } from 'react';
 import { ChatType } from '../../../types';
+import Loader from '../../atoms/Loader/Loader';
 import Card from '../../molecules/Card/Card';
 import LackCards from '../../molecules/LackCards/LackCards';
 import './CardList.scss';
@@ -28,7 +29,7 @@ const CardList: FC<CardListProps> = ({ className = '', chats, isLoading }) => {
     <LackCards />
   );
 
-  return <div className={classProps}>{!isLoading && content}</div>;
+  return <div className={classProps}>{isLoading ? <Loader className="cardList__loader" /> : content}</div>;
 };
 
 export default CardList;

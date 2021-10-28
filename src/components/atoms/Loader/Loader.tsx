@@ -3,11 +3,11 @@ import React, { FC } from 'react';
 import './Loader.scss';
 
 interface LoaderProps {
-  classNameName?: string;
+  className?: string;
 }
 
-const Loader: FC<LoaderProps> = ({ classNameName = '' }) => {
-  const classNameProps = classNames('sk-fading-circle', classNameName);
+const Loader: FC<LoaderProps> = ({ className = '' }) => {
+  const classNameProps = classNames('sk-fading-circle', className);
 
   return (
     <div className={classNameProps}>

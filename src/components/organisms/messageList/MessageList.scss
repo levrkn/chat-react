@@ -1,12 +1,20 @@
+@import '../../../assets/styles/mixins.scss';
+
 .messageList { 
   overflow: hidden;
   height: 100%;
   &__inner {
-    height: 100%;
+    height: calc(100vh - 250px);
     overflow-y: auto;
     display: inline-flex;
     &__wrap {
       margin-top: auto;
+    }
+    @include media1 {
+      height: calc(100vh - 222px);
+    }
+    @include media1 {
+      height: calc(100vh - 120px);
     }
   }
 }

@@ -6,6 +6,14 @@
   padding-top: 20px;
   flex: 1;
   overflow: auto;
+  display: flex;
+  flex-direction: column;
+  &__loader {
+    display: none;
+    @include media2 {
+      display: block;
+    }
+  }
   @include media1 {
     flex: 2;
   }
