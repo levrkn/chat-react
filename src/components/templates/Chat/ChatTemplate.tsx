@@ -6,7 +6,7 @@ import Activity from '../../molecules/Activity/Activity';
 import NoCardSelected from '../../molecules/NoCardSelected/NoCardSelected';
 import CardList from '../../organisms/CardList/CardList';
 import Header from '../../organisms/Header/Header';
-import Messaging from '../../organisms/messageList/MessageList';
+import MessageList from '../../organisms/MessageList/MessageList';
 import SendForm from '../../organisms/SendForm/SendForm';
 import './ChatTemplate.scss';
 
@@ -29,7 +29,7 @@ const ChatTemplate: FC<ChatTemplateProps> = ({
         subtitle={currentChat.activity}
         avatar={currentChat.avatar}
       />
-      <Messaging messages={currentChat?.messages} />
+      <MessageList messages={currentChat?.messages} />
       <SendForm />
     </>
   ) : (

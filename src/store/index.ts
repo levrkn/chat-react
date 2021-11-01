@@ -26,3 +26,7 @@ export const fetchChatsFx = createEffect(async () => {
   const res = await fetch('https://jsonplaceholder.typicode.com/todos');
   return res.json();
 });
+
+export const $isLoading = createStore(true)
+  .on(fetchChatsFx.done, () => false)
+  .on(fetchChatsFx.fail, () => true);
