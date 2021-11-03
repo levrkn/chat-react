@@ -1,7 +1,6 @@
 import classNames from 'classnames';
-import { useStore } from 'effector-react';
 import React, { FC } from 'react';
-import { $currentСhatId, updateCurrentId } from '../../../store';
+import { Link, useParams } from 'react-router-dom';
 import { MessageType } from '../../../types';
 import Avatar from '../../atoms/Avatar/Avatar';
 import Typography from '../../atoms/Typography/Typography';
@@ -22,17 +21,13 @@ const Card: FC<CardProps> = ({
   title,
   subtitle,
 }) => {
-  const currentСhatId = useStore($currentСhatId);
+  const params: {id: string} = useParams();
   const classProps = classNames('card', className, {
-    active: currentСhatId === id,
+    active: Number(params.id) === id,
   });
 
   return (
-    <button
-      className={classProps}
-      type="button"
-      onClick={() => updateCurrentId(id)}
-    >
+    <Link className={classProps} to={`/chat/${id}`}>
       <Avatar className="card__avatar" src={avatar} />
       <div>
         <Typography className="card__title" variant="4">
@@ -45,7 +40,7 @@ const Card: FC<CardProps> = ({
           <span>{subtitle.messageText}</span>
         </Typography>
       </div>
-    </button>
+    </Link>
   );
 };
 

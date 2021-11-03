@@ -12,6 +12,8 @@
   border: 0;
   width: 100%;
   text-align: left;
+  text-decoration: none;
+  font: inherit;
   @include media2 {
     margin-bottom: 12px;
     padding: 12px 14px 12px 14px;

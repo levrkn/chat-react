@@ -1,6 +1,7 @@
 import { useStore } from 'effector-react';
 import React, { FC, useEffect } from 'react';
-import { $chats, $currentСhatId, $isLoading, fetchChatsFx } from '../../store';
+import { useParams } from 'react-router-dom';
+import { $chats, $isLoading, fetchChatsFx } from '../../store';
 import ChatTemplate from '../templates/Chat/ChatTemplate';
 
 const Chat: FC = () => {
@@ -8,10 +9,10 @@ const Chat: FC = () => {
     fetchChatsFx();
   }, []);
 
-  const currentChatId = useStore($currentСhatId);
+  const params: { id: string } = useParams();
   const isLoading = useStore($isLoading);
   const chats = useStore($chats);
-  const currentChat = chats.filter((el) => el.id === currentChatId)[0];
+  const currentChat = chats.filter((el) => el.id === Number(params.id))[0];
 
   return (
     <ChatTemplate

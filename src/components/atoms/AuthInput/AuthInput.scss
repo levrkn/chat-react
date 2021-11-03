@@ -17,7 +17,7 @@
   &::placeholder {
     color: #9f9f9f;
   }
-  &:valid {
+  &.isDirty {
     border: 1px solid #5c98f1;
   }
   &.error {

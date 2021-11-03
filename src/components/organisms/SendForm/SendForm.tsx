@@ -1,8 +1,8 @@
 import classNames from 'classnames';
-import { useStore } from 'effector-react';
 import React, { FC } from 'react';
 import { useForm } from 'react-hook-form';
-import { $currentСhatId, addMessage } from '../../../store';
+import { useParams } from 'react-router-dom';
+import { addMessage } from '../../../store';
 import SendButton from '../../atoms/SendButton/SendButton';
 import SendFile from '../../atoms/SendFile/SendFile';
 import SendInput from '../../atoms/SendInput/SendInput';
@@ -14,10 +14,10 @@ interface SendFormProps {
 
 const SendForm: FC<SendFormProps> = ({ className = '' }) => {
   const classProps = classNames('sendForm', className);
-  const currentChatId = useStore($currentСhatId);
+  const params: {id: string} = useParams();
   const { register, handleSubmit, reset } = useForm({});
   const onSubmit = (data: { text: string }) => {
-    addMessage({ ...data, id: currentChatId });
+    addMessage({ ...data, id: Number(params.id) });
     reset();
   };
 

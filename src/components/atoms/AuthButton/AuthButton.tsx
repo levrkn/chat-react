@@ -1,11 +1,16 @@
 import classNames from 'classnames';
 import React, { FC } from 'react';
+import { FieldError } from 'react-hook-form';
 import './AuthButton.scss';
 
 interface AuthButtonProps {
   className?: string;
   children: React.ReactNode;
-  error: { [x: string]: { userName: string; password: string } };
+  error: {
+    login?: FieldError | undefined;
+    password?: FieldError | undefined;
+    captcha?: FieldError | undefined;
+  };
 }
 
 const AuthButton: FC<AuthButtonProps> = ({
