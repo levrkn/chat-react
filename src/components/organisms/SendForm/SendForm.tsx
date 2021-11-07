@@ -2,7 +2,7 @@ import classNames from 'classnames';
 import React, { FC } from 'react';
 import { useForm } from 'react-hook-form';
 import { useParams } from 'react-router-dom';
-import { addMessage } from '../../../store';
+import { addMessage } from '../../../store/chat';
 import SendButton from '../../atoms/SendButton/SendButton';
 import SendFile from '../../atoms/SendFile/SendFile';
 import SendInput from '../../atoms/SendInput/SendInput';

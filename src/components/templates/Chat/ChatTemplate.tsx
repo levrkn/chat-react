@@ -27,7 +27,7 @@ const ChatTemplate: FC<ChatTemplateProps> = ({
       <Activity
         title={currentChat.name}
         subtitle={currentChat.activity}
-        avatar={currentChat.avatar}
+        gender={currentChat.gender}
       />
       <MessageList messages={currentChat?.messages} />
       <SendForm />

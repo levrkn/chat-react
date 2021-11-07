@@ -2,12 +2,15 @@ export type ChatType = {
   id: number;
   name: string;
   activity: string;
-  avatar: string;
+  gender: 'male' | 'female';
   messages: MessageType[];
 };
 
 export type MessageType = {
   id: number;
-  type: 'right' | 'left';
-  messageText: string;
+  author: 'user' | 'friend';
+  type: 'file' | 'text';
+  text?: string;
+  name?: string;
+  size?: string;
 };

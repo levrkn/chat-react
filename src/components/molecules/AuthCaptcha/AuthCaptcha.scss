@@ -1,0 +1,37 @@
+@import '../../../assets/styles/mixins.scss';
+
+.authCaptcha {
+  border: 1px solid #b3cdf8;
+  border-radius: 8px;
+  position: relative;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  margin-bottom: 9px;
+  &__refresh {
+    cursor: pointer;
+    border: 0;
+    position: absolute;
+    top: 12px;
+    right: -35px;
+    width: 24px;
+    height: 24px;
+    background: url('../../../assets/images/refreshCaptcha.svg');
+    background-size: cover;
+    @include media1 {
+      width: 16px;
+      height: 16px;
+      top: 20px;
+      right: 10px;
+    }
+    @include media2 {
+      top: 16px;
+    }
+  }
+  @include media2 {
+    height: 48px;
+    margin-bottom: 0;
+  }
+}

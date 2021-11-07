@@ -3,12 +3,14 @@ import { Controller, useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import classNames from 'classnames';
+import { useHistory } from 'react-router-dom';
 import AuthButton from '../../atoms/AuthButton/AuthButton';
 import Field from '../../molecules/Field/Field';
 import './LoginForm.scss';
-import { loginFx } from '../../../store';
+import { loginFx } from '../../../store/auth';
+import AuthCaptcha from '../../molecules/AuthCaptcha/AuthCaptcha';
 
-interface LoginForm {
+interface LoginFormProps {
   className?: string;
   onSubmit: () => void;
 }
@@ -16,9 +18,10 @@ interface LoginForm {
 const schema = yup.object().shape({
   login: yup.string().min(5).max(50).required(),
   password: yup.string().min(8).max(32).required(),
+  captcha: yup.string().length(5).required(),
 });
 
-const LoginForm: FC<LoginForm> = ({ className = '', onSubmit }) => {
+const LoginForm: FC<LoginFormProps> = ({ className = '', onSubmit }) => {
   const classProps = classNames('loginForm', className);
   const {
     handleSubmit,
@@ -32,6 +35,7 @@ const LoginForm: FC<LoginForm> = ({ className = '', onSubmit }) => {
       captcha: '',
     },
   });
+  const history = useHistory();
   const onSubmitTest = (data: {
     login: string;
     password: string;
@@ -39,7 +43,6 @@ const LoginForm: FC<LoginForm> = ({ className = '', onSubmit }) => {
   }) => {
     loginFx(data);
   };
-
   return (
     <form className={classProps} onSubmit={handleSubmit(onSubmitTest)}>
       <Controller
@@ -51,7 +54,8 @@ const LoginForm: FC<LoginForm> = ({ className = '', onSubmit }) => {
         }) => (
           <Field
             className="loginForm__field"
-            title="login"
+            label="User name"
+            placeholder="Input user name"
             error={error?.message}
             onChange={onChange}
             onBlur={onBlur}
@@ -68,7 +72,8 @@ const LoginForm: FC<LoginForm> = ({ className = '', onSubmit }) => {
         }) => (
           <Field
             className="loginForm__field"
-            title="password"
+            label="Password"
+            placeholder="Input password"
             error={error?.message}
             type="password"
             onChange={onChange}
@@ -77,21 +82,39 @@ const LoginForm: FC<LoginForm> = ({ className = '', onSubmit }) => {
           />
         )}
       />
-      <img
-        src="http://109.194.37.212:93/api/auth/captcha"
-        alt=""
-        style={{ width: '100px' }}
-      />
-      <Controller
-        control={control}
-        name="captcha"
-        render={({ field: { onChange, onBlur } }) => (
-          <input onChange={onChange} onBlur={onBlur} placeholder="captcha" />
-        )}
-      />
-      <AuthButton error={errors} className="loginForm__button">
-        Log In
-      </AuthButton>
+      <div className="loginForm__captcha">
+        <Controller
+          control={control}
+          name="captcha"
+          render={({
+            field: { onChange, onBlur },
+            fieldState: { error, isDirty },
+          }) => (
+            <Field
+              className="loginForm__field"
+              label="Security code"
+              placeholder="Security code"
+              error={error?.message}
+              onChange={onChange}
+              onBlur={onBlur}
+              isDirty={isDirty}
+            />
+          )}
+        />
+        <AuthCaptcha />
+      </div>
+      <div className="loginForm__buttons">
+        <AuthButton error={errors} className="loginForm__button">
+          Log In
+        </AuthButton>
+        <AuthButton
+          className="loginForm__button"
+          variant="white"
+          onClick={() => history.push('/registration')}
+        >
+          Registration
+        </AuthButton>
+      </div>
     </form>
   );
 };

@@ -23,6 +23,8 @@
     "react/jsx-props-no-spreading": "off",
     "object-curly-newline": ["off"],
     "linebreak-style": "off",
+    "implicit-arrow-linebreak": "off",
+    "operator-linebreak": "off",
     "react/jsx-one-expression-per-line": "off",
     "no-use-before-define": "off",
     "@typescript-eslint/no-use-before-define": ["error"],

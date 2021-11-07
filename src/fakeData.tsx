@@ -1,106 +1,110 @@
-import avatar from './assets/images/maleIcon.svg';
 import { ChatType } from './types';
 
 const mockMessaging: ChatType[] = [
   {
     id: 1,
-    avatar,
+    gender: 'male',
     name: 'Konstantin Konstantinopolski',
     activity: '3 min ago',
     messages: [
       {
         id: 1,
-        type: 'right',
-        messageText:
-          'SeSed ut perspiciatis unde omnis iste natus error sit voluptatemaccusantium doloremque laudantium, totam rem aperiam, eaque ipsa quaeab illo inventore veritatis et quasi architecto beatae vitae dictasunt explicabo. accusantium doloremque laudantium, totam re',
+        author: 'user',
+        type: 'text',
+        text: 'SeSed ut perspiciatis unde omnis iste natus error sit voluptatemaccusantium doloremque laudantium, totam rem aperiam, eaque ipsa quaeab illo inventore veritatis et quasi architecto beatae vitae dictasunt explicabo. accusantium doloremque laudantium, totam re',
       },
       {
         id: 2,
-        type: 'right',
-        messageText:
-          'SeSed ut perspiciatis unde omnis iste natus error sit voluptatemaccusantium doloremque laudantium, totam rem aperiam, eaque ipsa quaeab illo inventore veritatis et quasi architecto beatae vitae dictasunt explicabo. accusantium doloremque laudantium, totam re',
+        author: 'user',
+        type: 'file',
+        name: 'file.png',
+        size: '5413565',
       },
       {
         id: 3,
-        type: 'left',
-        messageText:
-          'SeSed ut perspiciatis unde omnis iste natus error sit voluptatemaccusantium doloremque laudantium, totam rem aperiam, eaque ipsa quaeab illo inventore veritatis et quasi architecto beatae vitae dictasunt explicabo. accusantium doloremque laudantium, totam re',
+        author: 'user',
+        type: 'text',
+        text: 'SeSed ut perspiciatis unde omnis iste natus error sit voluptatemaccusantium doloremque laudantium, totam rem aperiam, eaque ipsa quaeab illo inventore veritatis et quasi architecto beatae vitae dictasunt explicabo. accusantium doloremque laudantium, totam re',
       },
       {
         id: 4,
-        type: 'left',
-        messageText:
-          'SeSed ut perspiciatis unde omnis iste natus error sit voluptatemaccusantium doloremque laudantium, totam rem aperiam, eaque ipsa quaeab illo inventore veritatis et quasi architecto beatae vitae dictasunt explicabo. accusantium doloremque laudantium, totam re',
+        author: 'user',
+        type: 'text',
+        text: 'SeSed ut perspiciatis unde omnis iste natus error sit voluptatemaccusantium doloremque laudantium, totam rem aperiam, eaque ipsa quaeab illo inventore veritatis et quasi architecto beatae vitae dictasunt explicabo. accusantium doloremque laudantium, totam re',
       },
       {
         id: 5,
-        type: 'left',
-        messageText:
-          'SeSed ut perspiciatis unde omnis iste natus error sit voluptatemaccusantium doloremque laudantium, totam rem aperiam, eaque ipsa quaeab illo inventore veritatis et quasi architecto beatae vitae dictasunt explicabo. accusantium doloremque laudantium, totam re',
+        author: 'user',
+        type: 'text',
+        text: 'SeSed ut perspiciatis unde omnis iste natus error sit voluptatemaccusantium doloremque laudantium, totam rem aperiam, eaque ipsa quaeab illo inventore veritatis et quasi architecto beatae vitae dictasunt explicabo. accusantium doloremque laudantium, totam re',
       },
       {
         id: 6,
-        type: 'left',
-        messageText:
-          'SeSed ut perspiciatis unde omnis iste natus error sit voluptatemaccusantium doloremque laudantium, totam rem aperiam, eaque ipsa quaeab illo inventore veritatis et quasi architecto beatae vitae dictasunt explicabo. accusantium doloremque laudantium, totam re',
+        author: 'user',
+        type: 'text',
+        text: 'SeSed ut perspiciatis unde omnis iste natus error sit voluptatemaccusantium doloremque laudantium, totam rem aperiam, eaque ipsa quaeab illo inventore veritatis et quasi architecto beatae vitae dictasunt explicabo. accusantium doloremque laudantium, totam re',
       },
       {
         id: 7,
-        type: 'right',
-        messageText: 'totam re',
+        author: 'user',
+        type: 'text',
+        text: 'totam re',
       },
       {
         id: 8,
-        type: 'right',
-        messageText: 'totam re',
+        author: 'user',
+        type: 'text',
+        text: 'totam re',
       },
       {
         id: 9,
-        type: 'right',
-        messageText: 'totam re',
+        author: 'user',
+        type: 'text',
+        text: 'totam re',
       },
       {
         id: 10,
-        type: 'left',
-        messageText: 'SeSed',
+        author: 'user',
+        type: 'text',
+        text: 'SeSed',
       },
     ],
   },
   {
     id: 2,
-    avatar,
+    gender: 'female',
     name: 'Marina Joe',
-    activity: '4 hours ago',
+    activity: 'online',
     messages: [
       {
         id: 1,
-        type: 'right',
-        messageText:
-          'SeSed ut perspiciatis unde omnis iste natus error sit voluptatemaccusantium doloremque laudantium, totam rem aperiam, eaque ipsa quaeab illo inventore veritatis et quasi architecto beatae vitae dictasunt explicabo. accusantium doloremque laudantium, totam re',
+        author: 'friend',
+        type: 'text',
+        text: 'SeSed ut perspiciatis unde omnis iste natus error sit voluptatemaccusantium doloremque laudantium, totam rem aperiam, eaque ipsa quaeab illo inventore veritatis et quasi architecto beatae vitae dictasunt explicabo. accusantium doloremque laudantium, totam re',
       },
       {
         id: 3,
-        type: 'right',
-        messageText:
-          'SeSed ut perspiciatis unde omnis iste natus error sit voluptatemaccusantium doloremque laudantium, totam rem aperiam, eaque ipsa quaeab illo inventore veritatis et quasi architecto beatae vitae dictasunt explicabo. accusantium doloremque laudantium, totam re',
+        author: 'friend',
+        type: 'text',
+        text: 'SeSed ut perspiciatis unde omnis iste natus error sit voluptatemaccusantium doloremque laudantium, totam rem aperiam, eaque ipsa quaeab illo inventore veritatis et quasi architecto beatae vitae dictasunt explicabo. accusantium doloremque laudantium, totam re',
       },
       {
         id: 4,
-        type: 'right',
-        messageText:
-          'SeSed ut perspiciatis unde omnis iste natus error sit voluptatemaccusantium doloremque laudantium, totam rem aperiam, eaque ipsa quaeab illo inventore veritatis et quasi architecto beatae vitae dictasunt explicabo. accusantium doloremque laudantium, totam re',
+        author: 'friend',
+        type: 'text',
+        text: 'SeSed ut perspiciatis unde omnis iste natus error sit voluptatemaccusantium doloremque laudantium, totam rem aperiam, eaque ipsa quaeab illo inventore veritatis et quasi architecto beatae vitae dictasunt explicabo. accusantium doloremque laudantium, totam re',
       },
       {
         id: 5,
-        type: 'right',
-        messageText:
-          'SeSed ut perspiciatis unde omnis iste natus error sit voluptatemaccusantium doloremque laudantium, totam rem aperiam, eaque ipsa quaeab illo inventore veritatis et quasi architecto beatae vitae dictasunt explicabo. accusantium doloremque laudantium, totam re',
+        author: 'friend',
+        type: 'text',
+        text: 'SeSed ut perspiciatis unde omnis iste natus error sit voluptatemaccusantium doloremque laudantium, totam rem aperiam, eaque ipsa quaeab illo inventore veritatis et quasi architecto beatae vitae dictasunt explicabo. accusantium doloremque laudantium, totam re',
       },
       {
         id: 6,
-        type: 'right',
-        messageText:
-          'SeSed ut perspiciatis unde omnis iste natus error sit voluptatemaccusantium doloremque laudantium, totam rem aperiam, eaque ipsa quaeab illo inventore veritatis et quasi architecto beatae vitae dictasunt explicabo. accusantium doloremque laudantium, totam re',
+        author: 'friend',
+        type: 'text',
+        text: 'SeSed ut perspiciatis unde omnis iste natus error sit voluptatemaccusantium doloremque laudantium, totam rem aperiam, eaque ipsa quaeab illo inventore veritatis et quasi architecto beatae vitae dictasunt explicabo. accusantium doloremque laudantium, totam re',
       },
     ],
   },

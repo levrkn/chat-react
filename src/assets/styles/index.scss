@@ -1,2 +1,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800&display=swap');
 @import './reset';
+@import './mixins';
+
+html {
+  &::-webkit-scrollbar {
+    width: 12px;
+  }
+  &::-webkit-scrollbar-track {
+    border-right: 4px rgba(239 245 255) solid;
+    border-radius: 12px;
+    background: #e1ecfe;
+    background-clip: padding-box;
+  }
+  &::-webkit-scrollbar-thumb {
+    border-radius: 12px;
+    background: #c5daff;
+    border-right: 4px rgba(239 245 255) solid;
+    background-clip: padding-box;
+    &:hover {
+      background-color: #b3cdf8;
+    }
+  }
+}

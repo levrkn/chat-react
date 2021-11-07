@@ -6,7 +6,9 @@ import './AuthButton.scss';
 interface AuthButtonProps {
   className?: string;
   children: React.ReactNode;
-  error: {
+  variant?: 'white';
+  onClick?: () => void;
+  error?: {
     login?: FieldError | undefined;
     password?: FieldError | undefined;
     captcha?: FieldError | undefined;
@@ -16,15 +18,20 @@ interface AuthButtonProps {
 const AuthButton: FC<AuthButtonProps> = ({
   className = '',
   children,
+  variant,
   error,
+  ...rest
 }) => {
-  const classProps = classNames('button', className);
+  const classProps = classNames('button', className, {
+    white: variant === 'white',
+  });
 
   return (
     <button
       className={classProps}
-      disabled={!!Object.keys(error)[0]}
-      type="submit"
+      disabled={!!error?.login || !!error?.password || !!error?.captcha}
+      type={variant === 'white' ? 'button' : 'submit'}
+      {...rest}
     >
       {children}
     </button>

@@ -2,8 +2,8 @@
   border-radius: 8px;
   background-color: #5C98F1;
   color: #fff;
-  border: 0;
-  width: 233px;
+  border: 1px solid #5C98F1;
+  width: 100%;
   height: 56px;
   cursor: pointer;
   transition: all .2s;
@@ -14,7 +14,22 @@
     background-color: #2C6AC7;
   }
   &:disabled {
+    border: 0;
     background-color: #D1D1D1;
     cursor: not-allowed;
+  }
+  &.white {
+    color: #5C98F1;
+    background-color: #fff;
+    &:hover {
+      background-color: #F3F8FF;
+    }
+    &:active {
+      background-color: #DFECFF;
+    }
+    &:disabled {
+      border: 1px solid #D1D1D1;
+      color: #D1D1D1;
+    }
   }
 }

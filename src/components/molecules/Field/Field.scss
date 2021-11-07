@@ -14,6 +14,9 @@
     top: 43px;
     background-image: url('../../../assets/images/errorInputIcon.svg');
     background-size: cover;
+    @include media2 {
+      top: 38px;
+    }
   }
   &__label {
     margin-bottom: 4px;

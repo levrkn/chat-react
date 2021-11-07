@@ -5,7 +5,14 @@
   padding: 0;
   border: 0;
   cursor: pointer;
-  background: 0;
+  width: 32px;
+  height: 32px;
+  background: url('../../../assets/images/sendfile.svg');
+  font-size: 0;
+  line-height: 0;
+  input {
+    display: none;
+  }
   @include media1 {
     height: 24px;
     width: 24px;

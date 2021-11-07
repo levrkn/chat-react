@@ -7,11 +7,17 @@
   @include media1 {
     max-width: 90%;
   }
+  &__image {
+    margin-right: 12px;
+    margin-left: 4px;
+  }
   &__right {
     margin-left: auto;
     .message__text {
       background-color: #e9f2ff;
       margin-left: auto;
+      text-decoration: none;
+      display: flex;
       &::before {
         content: '';
         right: -9px;

@@ -8,23 +8,23 @@ import AuthInput from '../../atoms/AuthInput/AuthInput';
 interface FieldProps {
   className?: string;
   type?: string;
-  title: string;
+  label: string;
+  placeholder: string
   error: string | undefined;
   onChange: (...event: []) => void;
   onBlur: Noop;
   isDirty: boolean
 }
 
-const Field: FC<FieldProps> = ({ className = '', title, error, ...rest }) => {
+const Field: FC<FieldProps> = ({ className = '', label, error, ...rest }) => {
   const classProps = classNames('field', className, { error: !!error });
   return (
     <div className={classProps}>
-      <Label className="field__label" htmlFor={title}>
-        {title[0].toUpperCase() + title.slice(1)}
+      <Label className="field__label" htmlFor={label}>
+        {label}
       </Label>
       <AuthInput
-        id={title}
-        placeholder={`Input ${title}`}
+        id={label}
         error={error}
         {...rest}
       />

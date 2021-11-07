@@ -1,11 +1,11 @@
 import React from 'react';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 import './assets/styles/index.scss';
 import Routes from './routes/index';
 
 const App: React.FC = () => (
-  <BrowserRouter>
+  <Router>
     <Routes />
-  </BrowserRouter>
+  </Router>
 );
 export default App;

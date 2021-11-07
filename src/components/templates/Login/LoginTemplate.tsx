@@ -1,7 +1,6 @@
 import React from 'react';
 import LoginForm from '../../organisms/LoginForm/LoginForm';
 import './LoginTemplate.scss';
-import authBackgroung from '../../../assets/images/authBackground.svg';
 import Logo from '../../atoms/Logo/Logo';
 import Typography from '../../atoms/Typography/Typography';
 
@@ -23,7 +22,7 @@ const LoginTemplate: React.FC<LoginTemplateProps> = ({ onSubmit }) => (
       </Typography>
       <LoginForm onSubmit={onSubmit} />
     </div>
-    <img className="login__img" src={authBackgroung} alt="authImg" />
+    <span className="login__span" />
   </main>
 );
 

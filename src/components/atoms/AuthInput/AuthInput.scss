@@ -1,7 +1,7 @@
 @import '../../../assets/styles/mixins.scss';
 
 .input {
-  padding: 16px;
+  padding: 15.5px;
   border: 1px solid #b3cdf8;
   border-radius: 8px;
   outline: none;
@@ -9,7 +9,6 @@
   font-size: 15px;
   font-weight: 400;
   width: 100%;
-  max-width: 350px;
   color: #333333;
   &:focus {
     border: 1px solid #5c98f1;
@@ -28,7 +27,7 @@
     color: rgba(251, 98, 98, 1);
   }
   @include media2 {
-    padding: 13px;
+    padding: 11.5px;
     max-width: 100%;
   }
 }

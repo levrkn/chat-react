@@ -1,6 +1,6 @@
 @import '../../../assets/styles/mixins.scss';
 
-.login {
+.registration {
   display: flex;
   min-height: 100vh;
   position: relative;
@@ -29,7 +29,7 @@
       top: 0;
       left: 0;
       width: 100%;
-      height: calc(100% - 460px);
+      height: calc(100% - 742px);
       background-image: url('../../../assets/images/authBackgoundMobile.svg');
       background-color: #eff5ff;
       background-size: cover;

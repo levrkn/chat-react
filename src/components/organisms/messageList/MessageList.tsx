@@ -1,11 +1,12 @@
 import classNames from 'classnames';
 import React, { FC, useEffect } from 'react';
+import { MessageType } from '../../../types';
 import Message from '../../molecules/Message/Message';
 import './MessageList.scss';
 
 interface MessageListProps {
   className?: string;
-  messages: { id: number; type: 'right' | 'left'; messageText: string }[];
+  messages: MessageType[];
 }
 
 const MessageList: FC<MessageListProps> = ({ className = '', messages }) => {
@@ -25,7 +26,7 @@ const MessageList: FC<MessageListProps> = ({ className = '', messages }) => {
       <div className="messageList__inner">
         {messages.map((el) => (
           <React.Fragment key={el.id}>
-            <Message type={el.type} messageText={el.messageText} />
+            <Message message={el} />
           </React.Fragment>
         ))}
       </div>

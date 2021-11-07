@@ -1,0 +1,95 @@
+@import '../../../assets/styles/mixins.scss';
+
+.select {
+  position: relative;
+  width: 170px;
+  &__button {
+    padding: 15.5px;
+    border: 1px solid #b3cdf8;
+    border-radius: 8px;
+    outline: none;
+    line-height: 23px;
+    font-size: 15px;
+    font-weight: 400;
+    width: 100%;
+    cursor: pointer;
+    background-color: #fff;
+    display: flex;
+    align-items: flex-start;
+    color: #9f9f9f;
+    &::after {
+      content: '';
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      width: 16px;
+      height: 16px;
+      background: url('../../../assets/images/selectArrow.svg.svg');
+      transition: all 1s;
+      @include media2 {
+        top: 16px;
+        right: 16px;
+      }
+    }
+    &.open {
+      border: 1px solid #5c98f1;
+      &::after {
+        transform: rotate(1.5turn);
+      }
+    }
+    &.selected {
+      color: #333333;
+      border: 1px solid #5c98f1;
+    }
+    &.error {
+      border: 1px solid #fb6262;
+    }
+    @include media2 {
+      padding: 11.5px;
+      max-width: 100%;
+    }
+  }
+  &__errorText {
+    color: rgba(251, 98, 98, 1);
+  }
+  &__inner {
+    position: absolute;
+    top: 40px;
+    left: 0;
+    width: 100%;
+    outline: none;
+    line-height: 23px;
+    font-size: 15px;
+    font-weight: 400;
+    margin-top: 20px;
+    transition: all 0.3s;
+    z-index: 10;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    border: 1px solid #b3cdf8;
+    border-radius: 8px;
+    &__button {
+      border: 0;
+      padding: 15.5px;
+      border-bottom: 1px solid #b3cdf8;
+      width: 100%;
+      background-color: #fff;
+      display: flex;
+      align-items: flex-start;
+      cursor: pointer;
+      font-size: inherit;
+      transition: all .2s;
+      &:first-child {
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+      }
+      &:last-child {
+        border: 0;
+        border-bottom-left-radius: 8px;
+        border-bottom-right-radius: 8px;
+      }
+      &:hover {
+        background: #f3f8ff;
+      }
+    }
+  }
+}

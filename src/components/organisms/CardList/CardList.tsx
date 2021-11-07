@@ -18,7 +18,7 @@ const CardList: FC<CardListProps> = ({ className = '', chats, isLoading }) => {
     chats.map((el: ChatType) => (
       <React.Fragment key={el.id}>
         <Card
-          avatar={el.avatar}
+          gender={el.gender}
           title={el.name}
           subtitle={el.messages[el.messages.length - 1]}
           id={el.id}
