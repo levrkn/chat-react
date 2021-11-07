@@ -7,6 +7,15 @@ import ChatTemplate from '../templates/Chat/ChatTemplate';
 const Chat: FC = () => {
   useEffect(() => {
     fetchChatsFx();
+    const webSocket = new WebSocket(
+      `ws://109.194.37.212:2346/?type=test&ws_id=${
+        localStorage.getItem('wsConnectKey') || ''
+      }`,
+    );
+    webSocket.onopen = () => {
+      webSocket.send(JSON.stringify({ type: 'users_list' }));
+    };
+    webSocket.onmessage = (event) => console.log(event.data);
   }, []);
 
   const params: { id: string } = useParams();

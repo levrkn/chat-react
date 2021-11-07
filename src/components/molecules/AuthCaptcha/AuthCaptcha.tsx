@@ -14,7 +14,9 @@ const AuthCaptcha: FC<AuthCaptchaProps> = ({ className = '' }) => {
   const refreshCaptcha = () => {
     fetch(`http://109.194.37.212:93/api/auth/captcha?t=${Date.now()}`, {
       headers: {
-        'Access-Control-Expose-Headers': '*',
+        'Access-Control-Expose-Headers': 'Set-Cookie',
+        'Access-control-Allow-Origin': '*',
+        'Access-control-Allow-Credentials': 'true',
       },
     }).then((res) => setCaptchaSrc(res.url));
   };

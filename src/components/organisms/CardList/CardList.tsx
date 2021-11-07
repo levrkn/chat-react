@@ -29,7 +29,11 @@ const CardList: FC<CardListProps> = ({ className = '', chats, isLoading }) => {
     <LackCards />
   );
 
-  return <div className={classProps}>{isLoading ? <Loader className="cardList__loader" /> : content}</div>;
+  return (
+    <div className={classProps}>
+      {isLoading ? <Loader className="cardList__loader" /> : content}
+    </div>
+  );
 };
 
 export default CardList;

@@ -22,7 +22,7 @@ const Message: FC<MessageProps> = ({ className = '', message }) => {
           {message.text}
         </Typography>
       ) : (
-        <Link className="message__text" to="/g">
+        <a className="message__text" href="http://109.194.37.212:93//files/rsd7bkb7kt4hb58ya86f.svg">
           <img className="message__image" src={fileIcon} alt="" />
           <div>
             <Typography variant="4">{message.name}</Typography>
@@ -30,7 +30,7 @@ const Message: FC<MessageProps> = ({ className = '', message }) => {
               {Number(message.size) / 1000000}MB
             </Typography>
           </div>
-        </Link>
+        </a>
       )}
     </div>
   );

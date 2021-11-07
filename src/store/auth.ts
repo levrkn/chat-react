@@ -34,13 +34,6 @@ export const loginFx = createEffect(
 );
 loginFx.done.watch(({ result }) => {
   localStorage.setItem('wsConnectKey', result.replace(/^"(.*)"$/, '$1'));
-  new WebSocket(
-    `ws://109.194.37.212:2346/?type=test&ws_id=${
-      localStorage.getItem('wsConnectKey') || ''
-    }`,
-  ).onopen = function () {
-    alert('[open] Соединение установлено');
-  };
 });
 
 export const $isAuth = createStore(
