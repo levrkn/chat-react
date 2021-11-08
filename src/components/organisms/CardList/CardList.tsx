@@ -1,5 +1,7 @@
 import classNames from 'classnames';
+import { useStore } from 'effector-react';
 import React, { FC } from 'react';
+import { $users } from '../../../store/chat';
 import { ChatType } from '../../../types';
 import Loader from '../../atoms/Loader/Loader';
 import Card from '../../molecules/Card/Card';
@@ -14,14 +16,20 @@ interface CardListProps {
 
 const CardList: FC<CardListProps> = ({ className = '', chats, isLoading }) => {
   const classProps = classNames('cardList', className);
+  const users = useStore($users);
   const content = chats[0] ? (
-    chats.map((el: ChatType) => (
+    users.map((el, index) => (
       <React.Fragment key={el.id}>
         <Card
           gender={el.gender}
           title={el.name}
-          subtitle={el.messages[el.messages.length - 1]}
-          id={el.id}
+          subtitle={{
+            id: 3,
+            author: 'user',
+            type: 'text',
+            text: 'SeSed ut perspiciatis unde omnis iste natus error sit voluptatemaccusantium doloremque laudantium, totam rem aperiam, eaque ipsa quaeab illo inventore veritatis et quasi architecto beatae vitae dictasunt explicabo. accusantium doloremque laudantium, totam re',
+          }}
+          id={index + 1}
         />
       </React.Fragment>
     ))

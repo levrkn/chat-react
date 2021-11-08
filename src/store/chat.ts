@@ -1,6 +1,11 @@
 import { createEffect, createEvent, createStore } from 'effector';
 import mockMessaging from '../fakeData';
-import { ChatType, MessageType } from '../types';
+import { ChatType, MessageType, usersType } from '../types';
+
+export const refreshUsersList = createEvent<usersType[]>();
+export const $users = createStore<usersType[]>([
+  { id: 1, name: 'bla', gender: 'male' },
+]).on(refreshUsersList, (state, payload) => payload);
 
 export const $chats = createStore(mockMessaging);
 export const addMessage = createEvent<MessageType>();
@@ -47,7 +52,6 @@ export const sendFileFx = createEffect(
   },
 );
 sendFileFx.done.watch(({ result, params }) => {
-  console.log(result);
   addMessage({
     id: Number(params.id),
     author: 'user',

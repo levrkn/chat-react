@@ -13,5 +13,7 @@ export type MessageType = {
   text?: string;
   name?: string;
   size?: string;
-  href?: string
+  href?: string;
 };
+
+export type usersType = {id: number, name: string; gender: 'male' | 'female' };
