@@ -13,4 +13,5 @@ export type MessageType = {
   text?: string;
   name?: string;
   size?: string;
+  href?: string
 };

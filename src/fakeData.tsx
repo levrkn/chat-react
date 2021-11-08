@@ -19,6 +19,7 @@ const mockMessaging: ChatType[] = [
         type: 'file',
         name: 'file.png',
         size: '5413565',
+        href: 'http://109.194.37.212:93//files/rsd7bkb7kt4hb58ya86f.svg',
       },
       {
         id: 3,

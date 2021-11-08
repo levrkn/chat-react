@@ -17,7 +17,7 @@ const SendForm: FC<SendFormProps> = ({ className = '' }) => {
   const params: {id: string} = useParams();
   const { register, handleSubmit, reset } = useForm({});
   const onSubmit = (data: { text: string }) => {
-    addMessage({ ...data, id: Number(params.id) });
+    addMessage({ ...data, author: 'user', type: 'text', id: Number(params.id) });
     reset();
   };
 

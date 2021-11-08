@@ -1,6 +1,8 @@
 import React, { FC } from 'react';
 import './SendFile.scss';
 import classNames from 'classnames';
+import { useParams } from 'react-router-dom';
+import { sendFileFx } from '../../../store/chat';
 
 interface SendFileProps {
   className?: string;
@@ -8,12 +10,14 @@ interface SendFileProps {
 
 const SendFile: FC<SendFileProps> = ({ className = '' }) => {
   const classProps = classNames('sendFile', className);
+  const params: { id: string } = useParams();
+
   const handleFile = (file: React.ChangeEvent<HTMLInputElement>) => {
-    if (file.target.files![0].size > 2097152) {
+    const currentFile = file.target.files![0];
+    const ext = currentFile.type;
+    if (currentFile.size > 2097152) {
       alert('the file must be less than 2MB');
-    }
-    const ext = file.target.files![0].type;
-    if (
+    } else if (
       ext === 'video/mp4' ||
       ext === 'video/ogg' ||
       ext === 'video/webm' ||
@@ -24,15 +28,8 @@ const SendFile: FC<SendFileProps> = ({ className = '' }) => {
       ext === 'image/png' ||
       ext === 'image/svg+xml'
     ) {
-      alert('easy!');
-      const formdata = new FormData();
-      formdata.append('0', file.target.files![0]);
-      fetch('http://109.194.37.212:93/api/upload', {
-        method: 'POST',
-        body: formdata,
-      }).then((res) => console.log(res));
+      sendFileFx({ file: currentFile, id: Number(params.id) });
     }
-    alert('fail');
   };
 
   return (

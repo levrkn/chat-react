@@ -1,6 +1,5 @@
 import classNames from 'classnames';
 import React, { FC } from 'react';
-import { Link } from 'react-router-dom';
 import { MessageType } from '../../../types';
 import Typography from '../../atoms/Typography/Typography';
 import fileIcon from '../../../assets/images/fileIcon.svg';
@@ -22,7 +21,7 @@ const Message: FC<MessageProps> = ({ className = '', message }) => {
           {message.text}
         </Typography>
       ) : (
-        <a className="message__text" href="http://109.194.37.212:93//files/rsd7bkb7kt4hb58ya86f.svg">
+        <a className="message__text" href={message.href}>
           <img className="message__image" src={fileIcon} alt="" />
           <div>
             <Typography variant="4">{message.name}</Typography>

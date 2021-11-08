@@ -26,8 +26,9 @@ export const loginFx = createEffect(
       body: formdata,
     });
     if (!res.ok) {
-      res.text().then((text) => alert(text));
-      throw Error();
+      await res.text().then((text) => {
+        throw Error(text);
+      });
     }
     return res.text();
   },
@@ -35,10 +36,9 @@ export const loginFx = createEffect(
 loginFx.done.watch(({ result }) => {
   localStorage.setItem('wsConnectKey', result.replace(/^"(.*)"$/, '$1'));
 });
-
-export const $isAuth = createStore(
-  !!(localStorage.getItem('wsConnectKey') || ''),
-).on(loginFx.done, () => true);
+loginFx.fail.watch(({ error }) => {
+  alert(error);
+});
 
 export const registrationFx = createEffect(
   async (data: {
@@ -61,9 +61,20 @@ export const registrationFx = createEffect(
       body: formdata,
     });
     if (!res.ok) {
-      res.text().then((text) => alert(text));
-      throw Error();
+      await res.text().then((text) => {
+        throw Error(text);
+      });
     }
     return res.text();
   },
 );
+registrationFx.done.watch(({ result }) => {
+  alert(result);
+});
+registrationFx.fail.watch(({ error }) => {
+  alert(error);
+});
+
+export const $isAuth = createStore(
+  !!(localStorage.getItem('wsConnectKey') || ''),
+).on(loginFx.done, () => true);

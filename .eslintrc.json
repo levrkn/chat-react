@@ -23,6 +23,7 @@
     "react/jsx-props-no-spreading": "off",
     "object-curly-newline": ["off"],
     "linebreak-style": "off",
+    "function-paren-newline": "off",
     "implicit-arrow-linebreak": "off",
     "operator-linebreak": "off",
     "react/jsx-one-expression-per-line": "off",
