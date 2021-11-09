@@ -4,10 +4,11 @@ import { useParams } from 'react-router-dom';
 import {
   $chats,
   $chatsIsLoading,
+  $users,
   fetchChatsFx,
   refreshUsersList,
 } from '../../store/chat';
-import { usersType } from '../../types';
+import { userType } from '../../types';
 import ChatTemplate from '../templates/Chat/ChatTemplate';
 
 function isJson(str: string) {
@@ -33,9 +34,9 @@ const Chat: FC = () => {
     socket.onmessage = (event: MessageEvent<string>) => {
       if (isJson(event.data) && JSON.parse(event.data).type === 'users_list') {
         refreshUsersList(
-          JSON.parse(event.data).data.map((el: usersType) => ({
+          JSON.parse(event.data).data.map((el: userType, index: number) => ({
             ...el,
-            id: Math.random(),
+            id: index + 1,
           })),
         );
       }

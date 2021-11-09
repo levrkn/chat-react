@@ -18,7 +18,7 @@ const CardList: FC<CardListProps> = ({ className = '', chats, isLoading }) => {
   const classProps = classNames('cardList', className);
   const users = useStore($users);
   const content = chats[0] ? (
-    users.map((el, index) => (
+    users.map((el) => (
       <React.Fragment key={el.id}>
         <Card
           gender={el.gender}
@@ -29,7 +29,7 @@ const CardList: FC<CardListProps> = ({ className = '', chats, isLoading }) => {
             type: 'text',
             text: 'SeSed ut perspiciatis unde omnis iste natus error sit voluptatemaccusantium doloremque laudantium, totam rem aperiam, eaque ipsa quaeab illo inventore veritatis et quasi architecto beatae vitae dictasunt explicabo. accusantium doloremque laudantium, totam re',
           }}
-          id={index + 1}
+          id={el.id}
         />
       </React.Fragment>
     ))

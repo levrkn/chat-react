@@ -1,11 +1,6 @@
 import { createEffect, createEvent, createStore } from 'effector';
 import mockMessaging from '../fakeData';
-import { ChatType, MessageType, usersType } from '../types';
-
-export const refreshUsersList = createEvent<usersType[]>();
-export const $users = createStore<usersType[]>([
-  { id: 1, name: 'bla', gender: 'male' },
-]).on(refreshUsersList, (state, payload) => payload);
+import { ChatType, MessageType, userType } from '../types';
 
 export const $chats = createStore(mockMessaging);
 export const addMessage = createEvent<MessageType>();
@@ -30,6 +25,12 @@ export const fetchChatsFx = createEffect(async () => {
   const res = await fetch('https://jsonplaceholder.typicode.com/todos');
   return res.json();
 });
+
+export const refreshUsersList = createEvent<userType[]>();
+export const $users = createStore<userType[]>([]).on(
+  refreshUsersList,
+  (state, payload) => payload,
+);
 
 export const $chatsIsLoading = createStore(true)
   .on(fetchChatsFx.done, () => false)
