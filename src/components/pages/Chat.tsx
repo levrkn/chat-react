@@ -24,12 +24,13 @@ const Chat: FC = () => {
   useEffect(() => {
     fetchChatsFx();
     const socket = new WebSocket(
-      `ws://109.194.37.212:2346/?type=test&ws_id=${
+      `ws://109.194.37.212:2346/?type=test123154&ws_id=${
         localStorage.getItem('wsConnectKey') || ''
       }`,
     );
     socket.onopen = () => {
       socket.send(JSON.stringify({ type: 'users_list' }));
+      socket.send('This is a capybara homework check');
     };
     socket.onmessage = (event: MessageEvent<string>) => {
       if (isJson(event.data) && JSON.parse(event.data).type === 'users_list') {
