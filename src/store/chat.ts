@@ -1,6 +1,7 @@
 import { createEffect, createEvent, createStore } from 'effector';
 import mockMessaging from '../fakeData';
 import { ChatType, MessageType, userType } from '../types';
+import { $isAuth } from './auth';
 
 export const $chats = createStore(mockMessaging);
 export const addMessage = createEvent<MessageType>();
@@ -21,10 +22,6 @@ const addMessageStore = (state: ChatType[], data: MessageType) => {
   return [...state];
 };
 $chats.on(addMessage, addMessageStore);
-export const fetchChatsFx = createEffect(async () => {
-  const res = await fetch('https://jsonplaceholder.typicode.com/todos');
-  return res.json();
-});
 
 export const refreshUsersList = createEvent<userType[]>();
 export const $users = createStore<userType[]>([]).on(
@@ -32,9 +29,10 @@ export const $users = createStore<userType[]>([]).on(
   (state, payload) => payload,
 );
 
-export const $chatsIsLoading = createStore(true)
-  .on(fetchChatsFx.done, () => false)
-  .on(fetchChatsFx.fail, () => true);
+export const $chatsIsLoading = createStore(true).on(
+  refreshUsersList,
+  () => false,
+);
 
 export const sendFileFx = createEffect(
   async (params: { file: File; id: number }) => {
@@ -65,3 +63,21 @@ sendFileFx.done.watch(({ result, params }) => {
 sendFileFx.fail.watch(({ error }) => {
   alert(error);
 });
+
+export const updateSocket = createEvent();
+export const $socket = createStore(
+  $isAuth &&
+    new WebSocket(
+      `ws://109.194.37.212:2346/?type=test&ws_id=${
+        localStorage.getItem('wsConnectKey') || ''
+      }`,
+    ),
+).on(
+  updateSocket,
+  () =>
+    new WebSocket(
+      `ws://109.194.37.212:2346/?type=test&ws_id=${
+        localStorage.getItem('wsConnectKey') || ''
+      }`,
+    ),
+);

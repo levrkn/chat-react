@@ -4,8 +4,7 @@ import { useParams } from 'react-router-dom';
 import {
   $chats,
   $chatsIsLoading,
-  $users,
-  fetchChatsFx,
+  $socket,
   refreshUsersList,
 } from '../../store/chat';
 import { userType } from '../../types';
@@ -21,16 +20,10 @@ function isJson(str: string) {
 }
 
 const Chat: FC = () => {
+  const socket = useStore($socket);
   useEffect(() => {
-    fetchChatsFx();
-    const socket = new WebSocket(
-      `ws://109.194.37.212:2346/?type=test123154&ws_id=${
-        localStorage.getItem('wsConnectKey') || ''
-      }`,
-    );
     socket.onopen = () => {
       socket.send(JSON.stringify({ type: 'users_list' }));
-      socket.send('This is a capybara homework check');
     };
     socket.onmessage = (event: MessageEvent<string>) => {
       if (isJson(event.data) && JSON.parse(event.data).type === 'users_list') {

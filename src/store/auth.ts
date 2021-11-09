@@ -1,4 +1,5 @@
 import { createEffect, createStore } from 'effector';
+import { updateSocket } from './chat';
 
 export const fetchGendersFx = createEffect(async () => {
   const res = await fetch('http://109.194.37.212:93/api/auth');
@@ -35,6 +36,7 @@ export const loginFx = createEffect(
 );
 loginFx.done.watch(({ result }) => {
   localStorage.setItem('wsConnectKey', result.replace(/^"(.*)"$/, '$1'));
+  updateSocket();
 });
 loginFx.fail.watch(({ error }) => {
   alert(error);

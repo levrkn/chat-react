@@ -1,5 +1,7 @@
 import classNames from 'classnames';
+import { useStore } from 'effector-react';
 import React, { FC } from 'react';
+import { $users } from '../../../store/chat';
 import { ChatType } from '../../../types';
 import Loader from '../../atoms/Loader/Loader';
 import Activity from '../../molecules/Activity/Activity';
@@ -22,7 +24,8 @@ const ChatTemplate: FC<ChatTemplateProps> = ({
   isLoading,
 }) => {
   const mobileClass = classNames('chat__inner', { show: currentChat });
-  const content = currentChat ? (
+  const users = useStore($users);
+  const content = users[0] && currentChat ? (
     <>
       <Activity
         title={currentChat.name}
