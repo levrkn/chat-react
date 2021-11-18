@@ -13,11 +13,10 @@
   }
   &__right {
     margin-left: auto;
-    .message__text {
+    .message__inner {
       background-color: #e9f2ff;
       margin-left: auto;
       text-decoration: none;
-      display: flex;
       &::before {
         content: '';
         right: -9px;
@@ -36,12 +35,12 @@
       }
     }
   }
-  &__text {
+  &__inner {
     border: 1px solid #c5daff;
     position: relative;
-    display: inline-block;
+    display: flex;
+    flex-direction: column;
     background-color: #fff;
-    padding: 12px;
     border-radius: 12px;
     max-width: 100%;
     word-break: break-all;
@@ -59,5 +58,13 @@
       z-index: 0;
       transform: skewX(50deg) skewY(0deg);
     }
+  }
+  &__file {
+    display: flex;
+    text-decoration: none;
+    padding: 12px;
+  }
+  &__text {
+    padding: 12px;
   }
 }

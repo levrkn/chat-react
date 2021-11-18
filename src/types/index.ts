@@ -9,11 +9,12 @@ export type ChatType = {
 export type MessageType = {
   id: number;
   author: 'user' | 'friend';
-  type: 'file' | 'text';
   text?: string;
-  name?: string;
-  size?: string;
-  href?: string;
+  file?: {
+    name: string;
+    size: number;
+    href: string;
+  }
 };
 
 export type userType = {id: number, name: string; gender: 'male' | 'female' };

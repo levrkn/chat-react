@@ -26,7 +26,6 @@ const CardList: FC<CardListProps> = ({ className = '', chats, isLoading }) => {
           subtitle={{
             id: 3,
             author: 'user',
-            type: 'text',
             text: 'SeSed ut perspiciatis unde omnis iste natus error sit voluptatemaccusantium doloremque laudantium, totam rem aperiam, eaque ipsa quaeab illo inventore veritatis et quasi architecto beatae vitae dictasunt explicabo. accusantium doloremque laudantium, totam re',
           }}
           id={el.id}

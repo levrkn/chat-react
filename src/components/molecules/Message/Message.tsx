@@ -16,21 +16,24 @@ const Message: FC<MessageProps> = ({ className = '', message }) => {
   });
   return (
     <div className={classProps}>
-      {message.type === 'text' ? (
-        <Typography className="message__text" variant="5">
-          {message.text}
-        </Typography>
-      ) : (
-        <a className="message__text" href={message.href}>
-          <img className="message__image" src={fileIcon} alt="" />
-          <div>
-            <Typography variant="4">{message.name}</Typography>
-            <Typography variant="6">
-              {Number(message.size) / 1000000}MB
-            </Typography>
-          </div>
-        </a>
-      )}
+      <div className="message__inner">
+        {message.file && (
+          <a className="message__file" href={message.file?.href}>
+            <img className="message__image" src={fileIcon} alt="" />
+            <div>
+              <Typography variant="4">{message.file?.name}</Typography>
+              <Typography variant="6">
+                {Number(message.file?.size) / 1000000}MB
+              </Typography>
+            </div>
+          </a>
+        )}
+        {message.text && (
+          <Typography className="message__text" variant="5">
+            {message.text}
+          </Typography>
+        )}
+      </div>
     </div>
   );
 };

@@ -1,4 +1,5 @@
 import { createEffect, createStore } from 'effector';
+import { errorAlert, successAlert } from '../utils/functions';
 import { updateSocket } from './chat';
 
 export const fetchGendersFx = createEffect(async () => {
@@ -39,7 +40,7 @@ loginFx.done.watch(({ result }) => {
   updateSocket();
 });
 loginFx.fail.watch(({ error }) => {
-  alert(error);
+  errorAlert(error.message);
 });
 
 export const registrationFx = createEffect(
@@ -71,10 +72,10 @@ export const registrationFx = createEffect(
   },
 );
 registrationFx.done.watch(({ result }) => {
-  alert(result);
+  successAlert(result);
 });
 registrationFx.fail.watch(({ error }) => {
-  alert(error);
+  errorAlert(error.message);
 });
 
 export const $isAuth = createStore(

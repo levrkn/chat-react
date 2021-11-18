@@ -8,16 +8,8 @@ import {
   refreshUsersList,
 } from '../../store/chat';
 import { userType } from '../../types';
+import { isJson } from '../../utils/functions';
 import ChatTemplate from '../templates/Chat/ChatTemplate';
-
-function isJson(str: string) {
-  try {
-    JSON.parse(str);
-  } catch (e) {
-    return false;
-  }
-  return true;
-}
 
 const Chat: FC = () => {
   const socket = useStore($socket);
