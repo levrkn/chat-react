@@ -13,6 +13,7 @@ const SendFile: FC<SendFileProps> = ({ className = '', onChange }) => {
 
   const handleFile = (file: React.ChangeEvent<HTMLInputElement>) => {
     try {
+      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       const currentFile = file.target.files![0];
       const ext = currentFile.type;
       if (currentFile.size > 2097152) {

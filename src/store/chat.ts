@@ -1,36 +1,37 @@
 import { createEffect, createEvent, createStore } from 'effector';
-import { MessageType, ChatType, userType } from '../types/index';
-import mockMessaging from '../fakeData';
-
+import { MessageType, userType } from '../types/index';
 import { $isAuth } from './auth';
 import { errorAlert, successAlert } from '../utils/functions';
 
-export const $chats = createStore(mockMessaging);
-export const addMessage =
-  createEvent<{ file?: MessageType['file']; text?: string; id: number }>();
+export const $messages = createStore<MessageType[]>([]);
+export const addMessage = createEvent<{
+  file?: MessageType['file'];
+  text?: string;
+  from: string;
+  to: string;
+}>();
 const addMessageStore = (
-  state: ChatType[],
-  data: { file?: MessageType['file']; text?: string; id: number },
+  state: MessageType[],
+  data: { file?: MessageType['file']; text?: string; from: string; to: string },
 ) => {
-  state[data.id - 1].messages.push({
+  state.push({
     ...data,
-    author: 'user',
     id: Date.now(),
   });
   return [...state];
 };
-$chats.on(addMessage, addMessageStore);
+$messages.on(addMessage, addMessageStore);
 
 export const refreshUsersList = createEvent<userType[]>();
-export const $users = createStore<userType[]>([]).on(
-  refreshUsersList,
-  (state, payload) => payload,
-);
+export const itIsMe = createEvent<string>();
+export const $users = createStore<userType[]>([])
+  .on(refreshUsersList, (state, payload) => payload)
+  .on(itIsMe, (state, payload) => [
+    ...state.filter((el) => payload !== el.name),
+    { ...state.filter((el) => payload === el.name)[0], you: true },
+  ]);
 
-export const $chatsIsLoading = createStore(true).on(
-  refreshUsersList,
-  () => false,
-);
+export const $usersIsLoading = createStore(true).on(itIsMe, () => false);
 
 export const sendFileFx = createEffect(
   async (params: { file: File; func: (href: string) => void }) => {
@@ -60,7 +61,7 @@ export const updateSocket = createEvent();
 export const $socket = createStore(
   $isAuth &&
     new WebSocket(
-      `ws://109.194.37.212:2346/?type=test&ws_id=${
+      `ws://109.194.37.212:2346/?type=test123qwerf&ws_id=${
         localStorage.getItem('wsConnectKey') || ''
       }`,
     ),
@@ -68,7 +69,7 @@ export const $socket = createStore(
   updateSocket,
   () =>
     new WebSocket(
-      `ws://109.194.37.212:2346/?type=test&ws_id=${
+      `ws://109.194.37.212:2346/?type=test123qwerf&ws_id=${
         localStorage.getItem('wsConnectKey') || ''
       }`,
     ),

@@ -8,7 +8,7 @@ interface LoginTemplateProps {
   onSubmit: () => void;
 }
 
-const LoginTemplate: React.FC<LoginTemplateProps> = ({ onSubmit }) => (
+const LoginTemplate: React.FC<LoginTemplateProps> = () => (
   <main className="login">
     <div className="login__inner">
       <Logo className="login__logo" />
@@ -20,7 +20,7 @@ const LoginTemplate: React.FC<LoginTemplateProps> = ({ onSubmit }) => (
       <Typography className="login__subtitle" variant="2">
         Please, autorize yourself
       </Typography>
-      <LoginForm onSubmit={onSubmit} />
+      <LoginForm />
     </div>
     <span className="login__span" />
   </main>

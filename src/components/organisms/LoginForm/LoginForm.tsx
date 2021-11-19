@@ -12,7 +12,6 @@ import AuthCaptcha from '../../molecules/AuthCaptcha/AuthCaptcha';
 
 interface LoginFormProps {
   className?: string;
-  onSubmit: () => void;
 }
 
 const schema = yup.object().shape({
@@ -21,7 +20,7 @@ const schema = yup.object().shape({
   captcha: yup.string().length(5).required(),
 });
 
-const LoginForm: FC<LoginFormProps> = ({ className = '', onSubmit }) => {
+const LoginForm: FC<LoginFormProps> = ({ className = '' }) => {
   const classProps = classNames('loginForm', className);
   const {
     handleSubmit,

@@ -8,9 +8,7 @@ interface RegistrationTemplateProps {
   onSubmit: () => void;
 }
 
-const RegistrationTemplate: React.FC<RegistrationTemplateProps> = ({
-  onSubmit,
-}) => (
+const RegistrationTemplate: React.FC<RegistrationTemplateProps> = () => (
   <main className="registration">
     <div className="registration__inner">
       <Logo className="registration__logo" />

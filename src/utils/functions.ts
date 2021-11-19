@@ -1,6 +1,6 @@
 import { toast } from 'react-toastify';
 
-export const isJson = (str: string) => {
+export const isJson: (str: string) => boolean = (str) => {
   try {
     JSON.parse(str);
   } catch (e) {
@@ -9,16 +9,17 @@ export const isJson = (str: string) => {
   return true;
 };
 
-export const errorAlert = (text: string) =>
+export const errorAlert: (text: string) => void = (text) =>
   toast.error(text, {
     position: 'top-center',
     draggable: false,
   });
 
-export const successAlert = (text: string) =>
+export const successAlert: (text: string) => void = (text) => {
   toast.success(text, {
     position: 'top-center',
-    autoClose: 1000,
+    autoClose: 2000,
     hideProgressBar: true,
     draggable: false,
   });
+};

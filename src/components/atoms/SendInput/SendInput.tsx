@@ -17,7 +17,6 @@ const SendInput: FC<SendInputProps> = ({ className = '', onChange, value }) => {
         className={classProps}
         placeholder="Sending messages works too..."
         autoComplete="off"
-        defaultValue=""
         value={value}
         onChange={(e) => onChange(e.target.value)}
       />

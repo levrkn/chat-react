@@ -25,6 +25,7 @@
   }
   &__inner {
     margin-top: auto;
+    width: 100%;
   }
   @include media1 {
     height: calc(100vh - 120px);

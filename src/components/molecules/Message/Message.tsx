@@ -1,9 +1,11 @@
 import classNames from 'classnames';
 import React, { FC } from 'react';
+import { useStore } from 'effector-react';
 import { MessageType } from '../../../types';
 import Typography from '../../atoms/Typography/Typography';
 import fileIcon from '../../../assets/images/fileIcon.svg';
 import './Message.scss';
+import { $users } from '../../../store/chat';
 
 interface MessageProps {
   className?: string;
@@ -11,8 +13,10 @@ interface MessageProps {
 }
 
 const Message: FC<MessageProps> = ({ className = '', message }) => {
+  const users = useStore($users);
   const classProps = classNames('message', className, {
-    message__right: message.author === 'user',
+    message__right:
+      message.from === users.filter((user) => user.you)[0]?.name,
   });
   return (
     <div className={classProps}>

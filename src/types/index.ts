@@ -1,14 +1,7 @@
-export type ChatType = {
-  id: number;
-  name: string;
-  activity: string;
-  gender: 'male' | 'female';
-  messages: MessageType[];
-};
-
 export type MessageType = {
   id: number;
-  author: 'user' | 'friend';
+  from: string;
+  to: string;
   text?: string;
   file?: {
     name: string;
@@ -17,4 +10,4 @@ export type MessageType = {
   }
 };
 
-export type userType = {id: number, name: string; gender: 'male' | 'female' };
+export type userType = {id: number, name: string; gender: 'male' | 'female', you?: true };
