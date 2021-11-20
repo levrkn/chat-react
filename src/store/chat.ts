@@ -3,7 +3,9 @@ import { MessageType, userType } from '../types/index';
 import { $isAuth } from './auth';
 import { errorAlert, successAlert } from '../utils/functions';
 
-export const $messages = createStore<MessageType[]>([]);
+export const $messages = createStore<MessageType[]>(
+  JSON.parse(localStorage.getItem('messages') || '[]'),
+);
 export const addMessage = createEvent<{
   file?: MessageType['file'];
   text?: string;
@@ -18,20 +20,26 @@ const addMessageStore = (
     ...data,
     id: Date.now(),
   });
+  localStorage.setItem('messages', JSON.stringify(state));
   return [...state];
 };
 $messages.on(addMessage, addMessageStore);
 
 export const refreshUsersList = createEvent<userType[]>();
 export const itIsMe = createEvent<string>();
-export const $users = createStore<userType[]>([])
-  .on(refreshUsersList, (state, payload) => payload)
-  .on(itIsMe, (state, payload) => [
-    ...state.filter((el) => payload !== el.name),
-    { ...state.filter((el) => payload === el.name)[0], you: true },
-  ]);
+export const $users = createStore<userType[]>([]).on(
+  refreshUsersList,
+  (state, payload) => {
+    const result = payload;
+    result[result.length - 1].you = true;
+    return payload;
+  },
+);
 
-export const $usersIsLoading = createStore(true).on(itIsMe, () => false);
+export const $usersIsLoading = createStore(true).on(
+  refreshUsersList,
+  () => false,
+);
 
 export const sendFileFx = createEffect(
   async (params: { file: File; func: (href: string) => void }) => {
@@ -61,7 +69,7 @@ export const updateSocket = createEvent();
 export const $socket = createStore(
   $isAuth &&
     new WebSocket(
-      `ws://109.194.37.212:2346/?type=test123qwerf&ws_id=${
+      `ws://109.194.37.212:2346/?type=test&ws_id=${
         localStorage.getItem('wsConnectKey') || ''
       }`,
     ),
@@ -69,7 +77,7 @@ export const $socket = createStore(
   updateSocket,
   () =>
     new WebSocket(
-      `ws://109.194.37.212:2346/?type=test123qwerf&ws_id=${
+      `ws://109.194.37.212:2346/?type=test&ws_id=${
         localStorage.getItem('wsConnectKey') || ''
       }`,
     ),

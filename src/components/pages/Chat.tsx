@@ -7,7 +7,6 @@ import {
   $users,
   $usersIsLoading,
   addMessage,
-  itIsMe,
   refreshUsersList,
 } from '../../store/chat';
 import { userType } from '../../types';
@@ -19,20 +18,16 @@ const Chat: FC = () => {
   useEffect(() => {
     socket.onopen = () => {
       socket.send(JSON.stringify({ type: 'users_list' }));
-      socket.send(JSON.stringify({ type: 'user_data' }));
     };
     socket.onmessage = (event: MessageEvent<string>) => {
-      if (isJson(event.data)) {
-        if (JSON.parse(event.data).type === 'users_list') {
-          refreshUsersList(
-            JSON.parse(event.data).data.map((el: userType, index: number) => ({
-              ...el,
-              id: index + 1,
-            })),
-          );
-        } else if (JSON.parse(event.data).type === 'user_data') {
-          itIsMe(JSON.parse(event.data).data.name);
-        }
+      console.log(event);
+      if (isJson(event.data) && JSON.parse(event.data).type === 'users_list') {
+        refreshUsersList(
+          JSON.parse(event.data).data.map((el: userType, index: number) => ({
+            ...el,
+            id: index + 1,
+          })),
+        );
       } else {
         addMessage(JSON.parse(event.data.replace(/^"(.*)"$/, '$1')));
       }

@@ -4,11 +4,7 @@ import Logo from '../../atoms/Logo/Logo';
 import Typography from '../../atoms/Typography/Typography';
 import RegistrationForm from '../../organisms/RegistrationForm/RegistrationForm';
 
-interface RegistrationTemplateProps {
-  onSubmit: () => void;
-}
-
-const RegistrationTemplate: React.FC<RegistrationTemplateProps> = () => (
+const RegistrationTemplate: React.FC = () => (
   <main className="registration">
     <div className="registration__inner">
       <Logo className="registration__logo" />

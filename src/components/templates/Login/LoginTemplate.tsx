@@ -4,11 +4,7 @@ import './LoginTemplate.scss';
 import Logo from '../../atoms/Logo/Logo';
 import Typography from '../../atoms/Typography/Typography';
 
-interface LoginTemplateProps {
-  onSubmit: () => void;
-}
-
-const LoginTemplate: React.FC<LoginTemplateProps> = () => (
+const LoginTemplate: React.FC = () => (
   <main className="login">
     <div className="login__inner">
       <Logo className="login__logo" />
