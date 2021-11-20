@@ -6,7 +6,7 @@ import Routes from './routes/index';
 import 'react-toastify/dist/ReactToastify.min.css';
 
 const App: React.FC = () => (
-  <Router basename="/">
+  <Router>
     <Routes />
     <ToastContainer />
   </Router>

@@ -31,6 +31,7 @@ const CardList: FC<CardListProps> = ({
               m.to === user?.name),
         );
         const currentMessage = message[message.length - 1];
+
         return (
           <React.Fragment key={user.id}>
             <Card

@@ -61,7 +61,9 @@ const SendForm: FC<SendFormProps> = ({ className = '', currentUser }) => {
         ) : (
           <>
             <SendFile onChange={handleFileChange} />
-            {values.file?.name}
+            {values.file?.name && (
+              <span className="sendForm__fileName">{values.file.name}</span>
+            )}
             <SendInput onChange={handleInputChange} value={values.text} />
             <SendButton />
           </>

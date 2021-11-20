@@ -12,21 +12,15 @@ const Routes: FC = () => {
   if (isAuth) {
     return (
       <Switch>
-        <Route path={SCREENS.SCREEN_CHAT} exact>
-          <Chat />
-        </Route>
+        <Route path={SCREENS.SCREEN_CHAT} component={Chat} exact />
         <Redirect to={SCREENS.SCREEN_CHAT} />
       </Switch>
     );
   }
   return (
     <Switch>
-      <Route path={SCREENS.SCREEN_LOGIN} exact>
-        <Login />
-      </Route>
-      <Route path={SCREENS.SCREEN_REGISTER} exact>
-        <Registration />
-      </Route>
+      <Route path={SCREENS.SCREEN_LOGIN} component={Login} exact />
+      <Route path={SCREENS.SCREEN_REGISTER} component={Registration} exact />
       <Redirect to={SCREENS.SCREEN_LOGIN} />
     </Switch>
   );
